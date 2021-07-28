@@ -164,13 +164,12 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">Nama
-                                                        Pemilik</label>
+                                                        Pabrik</label>
                                                 </div>
-                                                <select name="nama_petani" class="custom-select">
+                                                <select name="nama_pabrik" class="custom-select" id="pabrik">
                                                     <option selected value="">Pilih...</option>
-                                                    @foreach ($petani as $item)
-                                                        <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
-                                                        </option>
+                                                    @foreach ($pg as $item)
+                                                        <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -192,12 +191,13 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">Nama
-                                                        Pabrik</label>
+                                                        Pemilik</label>
                                                 </div>
-                                                <select name="nama_pabrik" class="custom-select">
+                                                <select name="nama_petani" class="custom-select" id="pemilik" disabled>
                                                     <option selected value="">Pilih...</option>
-                                                    @foreach ($pg as $item)
-                                                        <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
+                                                    @foreach ($petani as $item)
+                                                        <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -455,6 +455,9 @@
         };
     }
 })
+    $('#pabrik').change(function () {
+        $('#pemilik').prop('disabled', false)
+    })
     </script>
 
 @endsection

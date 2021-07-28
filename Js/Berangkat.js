@@ -55,6 +55,23 @@ const setFunctionu = () => {
 
 setFunctionu();
 
+document.querySelector('select[name=nama_pabrik]').addEventListener('change', function () {
+    const pg = this.value
+    const register = document.querySelector('select[name=nama_petani]')
+    fetch(URL + '/berangkat/getPg/' + pg)
+        .then(res => res.json())
+        .then(res => {
+            register.value = res.data.nama_pemilik
+            fetch(URL + '/pemilik/getRegister/' + register.value)
+                .then(res => res.json())
+                .then(res => updateRegister(res.data[0]));
+
+            register.value === 'def'
+                ? (BTN.uinduk.disabled = true)
+                : (BTN.uinduk.disabled = false);
+        })
+})
+
 FORM_ADD.tipe.addEventListener('change', function () {
     this.value === 'SPT' ? dForm(FORM_ADD) : oForm(FORM_ADD);
 });
@@ -206,7 +223,7 @@ FORM_UPDATE.wilayah.addEventListener('change', function () {
 BTN.uharga.onclick = async function () {
     const HARGA = FORM_ADD.harga.value;
     const DATA = await fetch(
-        URL + `/wilayah/harga?id=${DATA_HARGA.id}&harga=${HARGA}`
+        URL + `/wilayah/harga/${DATA_HARGA.id}/${HARGA}`
     );
     const RESULT = await DATA.json();
     RESULT.status === 'sukses'
@@ -217,7 +234,7 @@ BTN.uharga.onclick = async function () {
 BTN.uinduk.onclick = async function () {
     const INDUK = FORM_ADD.no_induk.value;
     const DATA = await fetch(
-        URL + `/pemilik/induk?id=${REGISTER.id}&induk=${INDUK}`
+        URL + `/pemilik/induk/${REGISTER.id}/${INDUK}`
     );
     const RESULT = await DATA.json();
     RESULT.data === 'sukses'

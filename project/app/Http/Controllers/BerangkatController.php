@@ -26,6 +26,10 @@ class BerangkatController extends Controller
         }
     }
 
+    public function getPg($name) {
+        return response()->json(['data' => Petani::where('nama_pabrik', $name)->first()]);
+    }
+
     public function addView()
     {
         $data = ['sopir' => Sopir::get(), 'wilayah' => Wilayah::get(), 'pg' => Pg::get(), 'petani' => Petani::get()];

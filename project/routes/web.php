@@ -54,7 +54,7 @@ Route::prefix('/pemilik')->group(function () {
     Route::put('/{id}', [PetaniController::class, 'update'])->middleware('myAuth');
     Route::get('/{id}', [PetaniController::class, 'delete'])->middleware('myAuth');
     Route::get('/getRegister/{id}', [PetaniController::class, 'getRegister'])->middleware('myAuth');
-    Route::get('/induk', [PetaniController::class, 'updateInduk'])->middleware('myAuth');
+    Route::get('/induk/{id}/{induk}', [PetaniController::class, 'updateInduk'])->middleware('myAuth');
     // route grouping
     Route::prefix('/group')->group(function () {
         Route::get('/search', [PetaniController::class, 'search'])->middleware('myAuth');
@@ -101,7 +101,7 @@ Route::prefix('/wilayah')->group(function () {
     Route::put('/{id}', [WilayahController::class, 'update'])->middleware('myAuth');
     Route::get('/{id}', [WilayahController::class, 'delete'])->middleware('myAuth');
     Route::get('/getHarga/{id}', [WilayahController::class, 'getHarga'])->middleware('myAuth');
-    Route::get('/harga', [WilayahController::class, 'updateHarga'])->middleware('myAuth');
+    Route::get('/harga/{id}/{harga}', [WilayahController::class, 'updateHarga'])->middleware('myAuth');
 
     Route::prefix('/group')->group(function () {
         Route::get('/search', [WilayahController::class, 'search'])->middleware('myAuth');
@@ -152,6 +152,7 @@ Route::prefix('/berangkat')->group(function () {
     // secondary action
     Route::get('/search', [BerangkatController::class, 'search'])->middleware('myAuth');
     Route::get('/filter', [BerangkatController::class, 'filter'])->middleware('myAuth');
+    Route::get('/getPg/{name}', [BerangkatController::class, 'getPg'])->middleware('myAuth');
     // transaksi
     Route::get('/pulang', [PulangContoller::class, 'show'])->middleware('myAuth');
     // view

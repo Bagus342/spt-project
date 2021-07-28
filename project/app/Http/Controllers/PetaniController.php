@@ -106,11 +106,11 @@ class PetaniController extends Controller
         ]);
     }
 
-    public function updateInduk()
+    public function updateInduk($id, $induk)
     {
         return response()->json([
-            'data' => Petani::where('id_pemilik', request('id'))->update([
-                'register_pemilik' => request('induk')
+            'data' => Petani::where('id_pemilik', $id)->update([
+                'register_pemilik' => $induk
             ]) ? 'sukses' : 'gagal'
         ]);
     }
