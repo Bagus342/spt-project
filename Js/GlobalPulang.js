@@ -20,15 +20,20 @@ function displayU() {
                     document.querySelector('input[name=refaksi]').value =
                         res.data.refaksi;
                     document.querySelector('input[name=tanggal_pulang]').value =
-                        res.data.tanggal_pulang;
+                        setTanggal(res.data.tanggal_pulang);
                     document.querySelector(
                         'input[name=tanggal_bongkar]'
-                    ).value = res.data.tanggal_bongkar;
+                    ).value = setTanggal(res.data.tanggal_bongkar);
                     document.querySelector('input[name=berat_bersih]').value =
                         res.data.berat_pulang - res.data.refaksi;
                 });
         });
     }
+}
+
+function setTanggal(tgl) {
+    tanggal = tgl.split('-')
+    return `${tanggal[2]}/${tanggal[1]}/${tanggal[0]}`
 }
 
 document

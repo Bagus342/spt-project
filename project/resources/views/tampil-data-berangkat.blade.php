@@ -153,7 +153,7 @@
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                                 </div>
-                                                <select name="wilayah" class="custom-select">
+                                                <select name="wilayah" class="custom-select" id="wilayah1">
                                                     <option selected value="">Pilih...</option>
                                                     @foreach ($wilayah as $item)
                                                         <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
@@ -193,12 +193,8 @@
                                                     <label class="input-group-text" for="inputGroupSelect01">Nama
                                                         Pemilik</label>
                                                 </div>
-                                                <select name="nama_petani" class="custom-select" id="pemilik" disabled>
+                                                <select name="nama_petani" class="custom-select" id="pemilik">
                                                     <option selected value="">Pilih...</option>
-                                                    @foreach ($petani as $item)
-                                                        <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}
-                                                        </option>
-                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -455,9 +451,6 @@
         };
     }
 })
-    $('#pabrik').change(function () {
-        $('#pemilik').prop('disabled', false)
-    })
     </script>
 
 @endsection

@@ -55,22 +55,54 @@ const setFunctionu = () => {
 
 setFunctionu();
 
+document.getElementById('tbh').addEventListener('click', function () {
+    const register = document.querySelector('select[name=nama_petani]')
+    register.disabled = true
+    console.log(register)
+})
+
 document.querySelector('select[name=nama_pabrik]').addEventListener('change', function () {
     const pg = this.value
+    console.log(pg)
     const register = document.querySelector('select[name=nama_petani]')
-    fetch(URL + '/berangkat/getPg/' + pg)
-        .then(res => res.json())
-        .then(res => {
-            register.value = res.data.nama_pemilik
-            fetch(URL + '/pemilik/getRegister/' + register.value)
-                .then(res => res.json())
-                .then(res => updateRegister(res.data[0]));
+    const induk = document.querySelector('input[name=no_induk]')
+    if (pg !== '') {
+        register.disabled = false
+        fetch(URL + '/berangkat/getPg/' + pg)
+            .then(res => res.json())
+            .then(res => {
+                register.innerHTML = loop(res)
+                fetch(URL + '/pemilik/getRegister/' + register.value)
+                    .then(res => res.json())
+                    .then(res => updateRegister(res.data[0]));
 
-            register.value === 'def'
-                ? (BTN.uinduk.disabled = true)
-                : (BTN.uinduk.disabled = false);
-        })
+                register.value === 'def'
+                    ? (BTN.uinduk.disabled = true)
+                    : (BTN.uinduk.disabled = false);
+            })
+
+    } else {
+        register.innerHTML = /* html */ `<option selected value="">Pilih...</option>`
+        register.disabled = true
+        console.log(register)
+        induk.value = ''
+        BTN.uinduk.disabled = true
+    }
 })
+
+const loop = data => {
+    let html = '';
+    data.data.map(res => {
+        html += input(res);
+    });
+    return html;
+};
+
+const input = (res) => {
+    return /*html*/ `
+    <option value="${res.nama_pemilik}">${res.nama_pemilik}</option>
+    `
+}
 
 FORM_ADD.tipe.addEventListener('change', function () {
     this.value === 'SPT' ? dForm(FORM_ADD) : oForm(FORM_ADD);

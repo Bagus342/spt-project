@@ -27,7 +27,7 @@ class BerangkatController extends Controller
     }
 
     public function getPg($name) {
-        return response()->json(['data' => Petani::where('nama_pabrik', $name)->first()]);
+        return response()->json(['data' => Petani::where('nama_pabrik', $name)->get()]);
     }
 
     public function addView()
