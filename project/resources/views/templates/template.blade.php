@@ -80,9 +80,8 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-money-check-alt"></i>
                                 <p>
-                                    Data Master
+                                    Master
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -132,9 +131,8 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-money-check-alt"></i>
                                 <p>
-                                    Data Transaksi
+                                    Transaksi
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
