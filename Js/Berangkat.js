@@ -135,8 +135,14 @@ FORM_ADD.berat.addEventListener('keyup', function () {
 });
 
 FORM_ADD.truk.addEventListener('keyup', function () {
-    const netto = parseInt(FORM_ADD.berat.value) - parseInt(this.value);
-    FORM_ADD.netto.value = netto.toString();
+    let truk = 0
+    if (this.value === '') {
+        FORM_ADD.netto.value = 'Netto'
+    } else {
+        truk = parseInt(this.value)
+        const netto = parseInt(FORM_ADD.berat.value) - parseInt(truk);
+        FORM_ADD.netto.value = netto.toString();
+    }
 });
 
 FORM_ADD.wilayah.addEventListener('change', function () {

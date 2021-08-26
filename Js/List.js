@@ -35,8 +35,14 @@ document
 document
     .querySelector('input[name=refaksi]')
     .addEventListener('keyup', function () {
-        let set =
-            parseInt(document.querySelector('input[name=berat_pulang]').value) -
-            parseInt(this.value);
-        document.querySelector('input[name=netto]').value = set.toString();
+        let refaksi = 0
+        if (this.value === '') {
+            document.querySelector('input[name=netto]').value = 'Netto'
+        } else {
+            refaksi = parseInt(this.value)
+            let set =
+                parseInt(document.querySelector('input[name=berat_pulang]').value) -
+                refaksi;
+            document.querySelector('input[name=netto]').value = set.toString();
+        }
     });
