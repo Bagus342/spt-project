@@ -28,12 +28,11 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <a href="">
                         <div class="info-box">
-                            <span class="info-box-icon bg-info elevation-1"><i
-                                    class="fas fa-money-bill-wave"></i></span>
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-money-bill-wave"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Pemasukan Hari Ini</span>
+                                <span class="info-box-text">Pengiriman Hari Ini</span>
                                 <span class="info-box-number">
-
+                                    10
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -45,11 +44,11 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <a href="">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-danger elevation-1"><i
-                                    class="fas fa-file-invoice-dollar"></i></span>
+                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Pengeluaran Hari Ini</span>
+                                <span class="info-box-text">Kepulangan Hari Ini</span>
                                 <span class="info-box-number">
+                                    2
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -65,11 +64,11 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <a href="">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-success elevation-1"><i
-                                    class="fas fa-money-check-alt"></i></span>
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-money-check-alt"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Saldo Hari Ini</span>
+                                <span class="info-box-text">Pembayaran Hari Ini</span>
                                 <span class="info-box-number">
+                                    Rp. 20.000.000
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
