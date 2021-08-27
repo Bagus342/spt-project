@@ -26,6 +26,19 @@ function displayU() {
                     ).value = setTanggal(res.data.tanggal_bongkar);
                     document.querySelector('input[name=berat_bersih]').value =
                         res.data.berat_pulang - res.data.refaksi;
+                    document.querySelector('input[name=berat_bersih]').addEventListener('keyup', function () {
+                        document.querySelector('input[name=berat_bersih]').value = this.value
+                    });
+                    document.querySelector('input[name=refaksi]').addEventListener('keyup', function () {
+                        let refaksi = 0
+                        if (this.value === '') {
+                            document.querySelector('input[name=berat_bersih]').value = 'Netto'
+                        } else {
+                            refaksi = parseInt(this.value)
+                            const jumlah = parseInt(document.querySelector('input[name=berat_pulang]').value) - refaksi
+                            document.querySelector('input[name=berat_bersih]').value = jumlah
+                        }
+                    });
                 });
         });
     }

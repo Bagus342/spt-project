@@ -248,6 +248,19 @@ function setForm(THIS) {
             FORM_UPDATE.truk.value = res.data.tara_mbl;
             FORM_UPDATE.netto.value = res.data.netto;
             FORM_UPDATE.harga.value = res.data.harga;
+            FORM_UPDATE.netto.addEventListener('keyup', function () {
+                FORM_UPDATE.netto.value = this.value;
+            })
+            FORM_UPDATE.truk.addEventListener('keyup', function () {
+                let tara = 0
+                if (this.value === '') {
+                    FORM_UPDATE.netto.value = 'Netto'
+                } else {
+                    tara = parseInt(this.value)
+                    const jumlah = parseInt(FORM_UPDATE.berat.value) - tara
+                    FORM_UPDATE.netto.value = jumlah
+                }
+            })
             res.data.tipe === 'SPT' ? dForm(FORM_UPDATE) : oForm(FORM_UPDATE);
         });
 }
