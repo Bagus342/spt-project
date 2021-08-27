@@ -32,7 +32,7 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">Pengiriman Hari Ini</span>
                                 <span class="info-box-number">
-                                    10
+                                    111231231
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -46,6 +46,7 @@
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
                             <div class="info-box-content">
+
                                 <span class="info-box-text">Kepulangan Hari Ini</span>
                                 <span class="info-box-number">
                                     2
