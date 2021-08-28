@@ -213,7 +213,7 @@
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Harga</label>
-                                            <input type="text" class="form-control" placeholder="Harga " name="harga" required>
+                                            <input type="number" class="form-control" placeholder="Harga " name="harga" required>
                                             <span class="text-dark"></span>
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Netto</label>
-                                    <input type="text" class="form-control" placeholder="Netto " name="netto" required readonly>
+                                    <input type="number" class="form-control" placeholder="Netto " name="netto" required readonly>
                                     <span class="text-dark"></span>
                                 </div>
                             </div>
@@ -382,11 +382,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="netto">Netto</label>
-                                    <input type="text" name="unetto" class="form-control" id="netto" placeholder="Netto" disabled>
+                                    <input type="number" name="unetto" class="form-control" id="netto" placeholder="Netto" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="text" name="uharga" class="form-control" id="harga" placeholder="Harga">
+                                    <input type="number" name="uharga" class="form-control" id="harga" placeholder="Harga">
                                 </div>
                             </div>
                         </div>
