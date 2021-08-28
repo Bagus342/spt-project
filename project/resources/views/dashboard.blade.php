@@ -32,7 +32,15 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">Pengiriman Hari Ini</span>
                                 <span class="info-box-number">
-                                    111231231
+                                    <?php if (count($berangkat) === 0): ?>
+                                    Tidak Ada Pemingiriman
+                                    <?php else: ?>
+                                    <?php $no = 0; ?>
+                                    @foreach($berangkat as $data)
+                                    <?php $no++ ?>
+                                    @endforeach
+                                    {{ $no }}
+                                    <?php endif ?>
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -49,7 +57,15 @@
 
                                 <span class="info-box-text">Kepulangan Hari Ini</span>
                                 <span class="info-box-number">
-                                    2
+                                    <?php if (count($pulang) === 0): ?>
+                                    Tidak Ada Pemulangan
+                                    <?php else: ?>
+                                    <?php $no = 0; ?>
+                                    @foreach($pulang as $data)
+                                        <?php $no++ ?>
+                                    @endforeach
+                                    {{ $no }}
+                                    <?php endif ?>
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -69,7 +85,20 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">Pembayaran Hari Ini</span>
                                 <span class="info-box-number">
-                                    Rp. 20.000.000
+                                    <?php if (count($saldo) === 0): ?>
+                                    Tidak Ada Pembayaran
+                                    <?php else: ?>
+                                    <?php $no = 0; ?>
+                                    @foreach($saldo as $data)
+                                    <?php $no += $data->harga * ($data->berat_pulang - $data->refaksi); ?>
+                                    @foreach($kondisi as $item)
+                                        @if($data->id_keberangkatan === $item->id_keberangkatan)
+                                            <?php $no += $data->harga * ($item->berat_pulang - $item->refaksi) ?>
+                                        @endif
+                                    @endforeach
+                                    @endforeach
+                                    {{ formatRupiah($no) }}
+                                    <?php endif ?>
                                 </span>
                             </div>
                             <!-- /.info-box-content -->

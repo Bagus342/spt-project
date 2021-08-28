@@ -6,6 +6,7 @@ use App\Http\Controllers\PgController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerangkatController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PulangContoller;
 use App\Http\Controllers\WilayahController;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, 'index']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('myAuth');
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('/user')->group(function () {
     Route::prefix('/view')->group(function () {

@@ -32,7 +32,7 @@ function displayU() {
                     document.querySelector('input[name=refaksi]').addEventListener('keyup', function () {
                         let refaksi = 0
                         if (this.value === '') {
-                            document.querySelector('input[name=berat_bersih]').value = 'Netto'
+                            document.querySelector('input[name=berat_bersih]').value = 'Berat Bersih'
                         } else {
                             refaksi = parseInt(this.value)
                             const jumlah = parseInt(document.querySelector('input[name=berat_pulang]').value) - refaksi

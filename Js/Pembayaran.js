@@ -83,7 +83,7 @@ const parse2 = data => {
 };
 
 const detaildata = (res, no) => {
-    const netto = res.berat_pulang * res.refaksi;
+    const netto = res.berat_pulang - res.refaksi;
     const total = res.harga * netto;
     return /*html*/ `<tr>
     <td>${no}</td>
