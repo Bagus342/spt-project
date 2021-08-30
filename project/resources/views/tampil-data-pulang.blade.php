@@ -149,22 +149,22 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">No Truk</label>
-                            <input type="text" class="form-control" placeholder="No Truk " name="no_truk">
+                            <input type="number" class="form-control" placeholder="No Truk " name="no_truk">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Berat Pulang</label>
-                            <input type="text" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
+                            <input type="number" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Refaksi</label>
-                            <input type="text" class="form-control" placeholder="Refaksi " name="refaksi">
+                            <input type="number" class="form-control" placeholder="Refaksi " name="refaksi">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Berat Bersih</label>
-                            <input type="text" class="form-control" placeholder="Berat Bersih" name="berat_bersih" readonly>
+                            <input type="number" class="form-control" placeholder="Berat Bersih" name="berat_bersih" readonly>
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
