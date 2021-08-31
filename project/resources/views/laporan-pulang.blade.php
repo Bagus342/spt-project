@@ -133,13 +133,20 @@
     const tombol = document.getElementById('button')
     const documen = document.getElementById('cetak')
 
+    printdoc()
+
+    function printdoc () {
+        const tombol = document.getElementById('button')
+        const documen = document.getElementById('cetak')
     tombol.addEventListener('click', () => {
         var restorepage = document.body.innerHTML
         var printcontent = documen.innerHTML
         document.body.innerHTML = printcontent
         window.print()
-        document.body.innerHTML = restorepage
+        window.location.reload(true)
     })
+    }
+    
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
