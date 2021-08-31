@@ -32,14 +32,14 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">Pengiriman Hari Ini</span>
                                 <span class="info-box-number">
-                                    <?php if (count($berangkat) === 0): ?>
-                                    Tidak Ada Pemingiriman
-                                    <?php else: ?>
-                                    <?php $no = 0; ?>
-                                    @foreach($berangkat as $data)
-                                    <?php $no++ ?>
-                                    @endforeach
-                                    {{ $no }}
+                                    <?php if (count($berangkat) === 0) : ?>
+                                        Tidak Ada Pengiriman
+                                    <?php else : ?>
+                                        <?php $no = 0; ?>
+                                        @foreach($berangkat as $data)
+                                        <?php $no++ ?>
+                                        @endforeach
+                                        {{ $no }}
                                     <?php endif ?>
                                 </span>
                             </div>
@@ -57,14 +57,14 @@
 
                                 <span class="info-box-text">Kepulangan Hari Ini</span>
                                 <span class="info-box-number">
-                                    <?php if (count($pulang) === 0): ?>
-                                    Tidak Ada Pemulangan
-                                    <?php else: ?>
-                                    <?php $no = 0; ?>
-                                    @foreach($pulang as $data)
+                                    <?php if (count($pulang) === 0) : ?>
+                                        Tidak Ada Kepulangan
+                                    <?php else : ?>
+                                        <?php $no = 0; ?>
+                                        @foreach($pulang as $data)
                                         <?php $no++ ?>
-                                    @endforeach
-                                    {{ $no }}
+                                        @endforeach
+                                        {{ $no }}
                                     <?php endif ?>
                                 </span>
                             </div>
@@ -85,19 +85,19 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">Pembayaran Hari Ini</span>
                                 <span class="info-box-number">
-                                    <?php if (count($saldo) === 0): ?>
-                                    Tidak Ada Pembayaran
-                                    <?php else: ?>
-                                    <?php $no = 0; ?>
-                                    @foreach($saldo as $data)
-                                    <?php $no += $data->harga * ($data->berat_pulang - $data->refaksi); ?>
-                                    @foreach($kondisi as $item)
+                                    <?php if (count($saldo) === 0) : ?>
+                                        Tidak Ada Pembayaran
+                                    <?php else : ?>
+                                        <?php $no = 0; ?>
+                                        @foreach($saldo as $data)
+                                        <?php $no += $data->harga * ($data->berat_pulang - $data->refaksi); ?>
+                                        @foreach($kondisi as $item)
                                         @if($data->id_keberangkatan === $item->id_keberangkatan)
-                                            <?php $no += $data->harga * ($item->berat_pulang - $item->refaksi) ?>
+                                        <?php $no += $data->harga * ($item->berat_pulang - $item->refaksi) ?>
                                         @endif
-                                    @endforeach
-                                    @endforeach
-                                    {{ formatRupiah($no) }}
+                                        @endforeach
+                                        @endforeach
+                                        {{ formatRupiah($no) }}
                                     <?php endif ?>
                                 </span>
                             </div>
