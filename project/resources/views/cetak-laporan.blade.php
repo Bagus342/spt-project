@@ -138,7 +138,7 @@
         var printcontent = documen.innerHTML
         document.body.innerHTML = printcontent
         window.print()
-        document.body.innerHTML = restorepage
+        window.location.reload(true)
     })
 </script>
 

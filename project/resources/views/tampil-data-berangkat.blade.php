@@ -223,17 +223,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Sangu</label>
-                                    <input type="text" class="form-control" placeholder="Sangu " name="sangu" required>
+                                    <input type="number" class="form-control" placeholder="Sangu " name="sangu" required>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Berat (Kuintal)</label>
-                                    <input type="text" class="form-control" placeholder="Berat Timbang " name="berat_timbang" required>
+                                    <input type="number" class="form-control" placeholder="Berat Timbang " name="berat_timbang" required>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tara MBL</label>
-                                    <input type="text" class="form-control" placeholder="Tara MBL " name="tara_mbl" required>
+                                    <input type="number" class="form-control" placeholder="Tara MBL " name="tara_mbl" required>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
@@ -370,15 +370,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sangu">Sangu</label>
-                                    <input type="text" name="usangu" class="form-control" id="sangu" placeholder="Sangu">
+                                    <input type="number" name="usangu" class="form-control" id="sangu" placeholder="Sangu">
                                 </div>
                                 <div class="form-group">
                                     <label for="berattimbang">Berat Timbang (kwintal)</label>
-                                    <input type="text" name="uberat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
+                                    <input type="number" name="uberat_timbang" class="form-control" id="berattimbang" placeholder="Berat Timbang">
                                 </div>
                                 <div class="form-group">
                                     <label for="tarambl">Tara mbl</label>
-                                    <input type="text" name="utara_mbl" class="form-control" id="tarambl" placeholder="Tara mbl">
+                                    <input type="number" name="utara_mbl" class="form-control" id="tarambl" placeholder="Tara mbl">
                                 </div>
                                 <div class="form-group">
                                     <label for="netto">Netto</label>
