@@ -109,7 +109,7 @@
                                     </table>
                                     </table>
                                     <div class="tota mt-3">
-                                        <table class="table table-bordered" style="width: 100%;">
+                                        <table id="total" class="table table-bordered" style="width: 100%;">
                                             <tr>
                                                 <th>Total</th>
                                                 <th style="text-align: right;">{{ formatRupiah($c) }}</th>

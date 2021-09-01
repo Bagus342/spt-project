@@ -31,14 +31,20 @@ class TransaksiController extends Controller
     public function cetakTransaksi(Berangkat $berangkat, Request $req)
     {
         $tgl = explode(' / ', $req->tanggal);
-        return view('cetak-laporan', [
-            'data' => $berangkat->whereBetween('created_at', [tanggal2($tgl[0]), tanggal2($tgl[1])])
-                ->where('tipe', $req->tipe)
-                ->where('pabrik_tujuan', $req->pabrik)
-                ->whereNotNull('tanggal_pulang')
-                ->get(),
-            'title' => 'Cetak | Transaksi'
-        ]);
+        if ( $req->tipe === null ) {
+            return view('cetak-laporan', [
+                'data' => $berangkat->whereNotNull('tanggal_pulang')->orderBy('id_keberangkatan', 'desc')->get()
+            ]);
+        } else {
+            return view('cetak-laporan', [
+                'data' => $berangkat->whereBetween('created_at', [tanggal2($tgl[0]), tanggal2($tgl[1])])
+                    ->where('tipe', $req->tipe)
+                    ->where('pabrik_tujuan', $req->pabrik)
+                    ->whereNotNull('tanggal_pulang')
+                    ->get(),
+                'title' => 'Cetak | Transaksi'
+            ]);
+        }
     }
 
     /**

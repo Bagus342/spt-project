@@ -43,6 +43,7 @@ function getfilter() {
         .then(res => res.json())
         .then(res => {
             document.getElementById('list-data').innerHTML = parse(res);
+            document.getElementById('total').innerHTML = parse2(res);
             setState(date1, date2, type, pabrik);
             checkState();
         });
@@ -74,11 +75,10 @@ const htmldata = (res, no) => {
     return /*html*/ `<tr>
 	<td>${no}</td>
 	<td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-	<td>${
-        res.tanggal_pulang == null
+	<td>${res.tanggal_pulang == null
             ? 'Belum Pulang'
             : formatTanggal(res.tanggal_pulang)
-    }</td>
+        }</td>
 	<td>${res.tipe}</td>
 	<td>${res.nama_petani}</td>
 	<td>${res.nama_sopir}</td>
@@ -90,6 +90,28 @@ const htmldata = (res, no) => {
 	<td>${formatRupiah(total.toString(), 'Rp ')}</td>
 	</tr>`;
 };
+
+const parse2 = data => {
+    let html = '';
+    let no = 1;
+    data.data.map(res => {
+        html += total(res);
+    });
+    return html;
+};
+
+const total = (res) => {
+    const netto = res.berat_pulang - res.refaksi
+    const jumlah = res.harga * netto
+    let a = 0
+    a += jumlah
+    return /* html */ `
+    <tr>
+        <th>Total</th>
+        <th style="text-align: right;">${formatRupiah(a.toString(), 'Rp ')}</th>
+    </tr>
+    `
+}
 
 const formatTanggal = tgl => {
     const listMonth = [
