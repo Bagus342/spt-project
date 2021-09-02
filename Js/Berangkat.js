@@ -174,7 +174,7 @@ const updateHargau = (res) => {
   } else {
     DATA_HARGA.id = res.id_wilayah;
     DATA_HARGA.harga = res.harga_wilayah;
-    FORM_UPDATE.harga.value = formatRupiah(DATA_HARGA.harga);
+    FORM_UPDATE.harga.value = formatRupiah(DATA_HARGA.harga.toString(), 'Rp ');
   }
 };
 
@@ -230,7 +230,7 @@ function setForm(THIS) {
       FORM_UPDATE.pemilik.value = res.data.nama_petani;
       FORM_UPDATE.petani.value = res.data.nama_sopir;
       FORM_UPDATE.pabrik.value = res.data.pabrik_tujuan;
-      FORM_UPDATE.sangu.value = res.data.sangu;
+      FORM_UPDATE.sangu.value = formatRupiah(res.data.sangu.toString(), 'Rp ');
       FORM_UPDATE.berat.value = res.data.berat_timbang;
       FORM_UPDATE.truk.value = res.data.tara_mbl;
       FORM_UPDATE.netto.value = res.data.netto;
@@ -393,4 +393,9 @@ if (errorflash.getAttribute('data-flash-error') !== '') {
 FORM_UPDATE.harga.addEventListener('keyup', function (e) {
   const val = this.value.split('Rp. ');
   val.length > 1 ? (FORM_UPDATE.harga.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.harga.value = formatRupiah(this.value, 'Rp. '));
+});
+
+FORM_UPDATE.sangu.addEventListener('keyup', function (e) {
+  const val = this.value.split('Rp. ');
+  val.length > 1 ? (FORM_UPDATE.sangu.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.sangu.value = formatRupiah(this.value, 'Rp. '));
 });

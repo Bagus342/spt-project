@@ -39,6 +39,7 @@ class BerangkatController extends Controller
     public function add(Request $req)
     {
         $harga = explode('Rp. ', $req->harga);
+        $sangu = explode('Rp. ', $req->sangu);
         return Berangkat::insert([
             'tanggal_keberangkatan' => tanggal($req->tanggal_berangkat),
             'tipe' => $req->tipe,
@@ -48,7 +49,7 @@ class BerangkatController extends Controller
             'nama_petani' => $req->nama_petani,
             'nama_sopir' => $req->nama_sopir,
             'pabrik_tujuan' => $req->nama_pabrik,
-            'sangu' => $req->sangu,
+            'sangu' => str_replace('.', '', $sangu[1]),
             'berat_timbang' => $req->berat_timbang,
             'tara_mbl' => $req->tara_mbl,
             'netto' => $req->netto,
@@ -62,6 +63,7 @@ class BerangkatController extends Controller
     public function update(Request $req, $id)
     {
         $uharga = explode('Rp. ', $req->uharga);
+        $usangu = explode('Rp. ', $req->usangu);
         return Berangkat::where('id_keberangkatan', $id)->update([
             'tanggal_keberangkatan' => tanggal($req->utanggal_berangkat),
             'tipe' => $req->utipe,
@@ -71,7 +73,7 @@ class BerangkatController extends Controller
             'nama_petani' => $req->unama_petani,
             'nama_sopir' => $req->unama_sopir,
             'pabrik_tujuan' => $req->upabrik_tujuan,
-            'sangu' => $req->usangu,
+            'sangu' => str_replace('.', '', $usangu[1]),
             'berat_timbang' => $req->uberat_timbang,
             'tara_mbl' => $req->utara_mbl,
             'netto' => $req->unetto,

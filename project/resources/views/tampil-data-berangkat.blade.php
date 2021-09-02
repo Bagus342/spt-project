@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Sangu</label>
-                                    <input type="number" class="form-control" placeholder="Sangu " name="sangu" required>
+                                    <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control sangu" placeholder="Sangu " name="sangu" required>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
@@ -370,7 +370,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sangu">Sangu</label>
-                                    <input type="number" name="usangu" class="form-control" id="sangu" placeholder="Sangu">
+                                    <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control harga" placeholder="Sangu " name="usangu" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="berattimbang">Berat Timbang (kwintal)</label>
@@ -459,10 +459,17 @@
         }
 
         var rupiah = document.querySelector('.harga');
+        var sangu = document.querySelector('.sangu');
         rupiah.addEventListener('keyup', function(e) {
 
             const val = this.value.split('Rp. ')
             val.length > 1 ? rupiah.value = formatRupiah(val[1], 'Rp. ') : rupiah.value = formatRupiah(this.value, 'Rp. ')
+        });
+
+        sangu.addEventListener('keyup', function(e) {
+
+            const val = this.value.split('Rp. ')
+            val.length > 1 ? sangu.value = formatRupiah(val[1], 'Rp. ') : sangu.value = formatRupiah(this.value, 'Rp. ')
         });
 
         /* Fungsi formatRupiah */
