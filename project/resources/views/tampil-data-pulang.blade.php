@@ -149,7 +149,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">No Truk</label>
-                            <input type="number" class="form-control" placeholder="No Truk " name="no_truk">
+                            <input type="text" class="form-control" placeholder="No Truk " name="no_truk">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
