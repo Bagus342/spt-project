@@ -112,32 +112,32 @@
                                 <div class="modal-body">
                                     <div class="form-group" id="1">
                                         <label for="exampleInputPassword1">Tanggal Pulang</label>
-                                        <input type="text" class="form-control date" placeholder="Tanggal Pulang " value="{{ date('d/m/Y') }}" name="tanggal_pulang">
+                                        <input type="text" class="form-control date" placeholder="Tanggal Pulang " value="{{ date('d/m/Y') }}" name="tanggal_pulang" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group" id="2">
                                         <label for="exampleInputPassword1">Tanggal Bongkar</label>
-                                        <input type="text" class="form-control date" placeholder="Tanggal Bongkar " value="{{ date('d/m/Y') }}" name="tanggal_bongkar">
+                                        <input type="text" class="form-control date" placeholder="Tanggal Bongkar " value="{{ date('d/m/Y') }}" name="tanggal_bongkar" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No Truk</label>
-                                        <input type="text" class="form-control" placeholder="No Truk " name="no_truk">
+                                        <input type="text" class="form-control" placeholder="No Truk " name="no_truk" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Berat Pulang</label>
-                                        <input type="number" class="form-control" placeholder="Berat Pulang " name="berat_pulang">
+                                        <input type="number" class="form-control" placeholder="Berat Pulang " name="berat_pulang" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Refaksi</label>
-                                        <input type="number" class="form-control" placeholder="Refaksi " name="refaksi">
+                                        <input type="number" class="form-control" placeholder="Refaksi " name="refaksi" required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Netto</label>
-                                        <input type="number" class="form-control" placeholder="Netto " name="netto" readonly>
+                                        <input type="number" class="form-control" placeholder="Netto " name="netto" readonly required>
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">

@@ -58,7 +58,7 @@ class PulangContoller extends Controller
     public function show(Berangkat $berangkat)
     {
         return view('list-dipulangkan', [
-            'data' => $berangkat->whereNull('tanggal_pulang')->get(),
+            'data' => $berangkat->whereNull('tanggal_pulang')->orderBy('id_keberangkatan', 'asc')->get(),
             'title' => 'Tambah | Pulang'
         ]);
     }

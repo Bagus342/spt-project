@@ -91,7 +91,11 @@
                                         @if (session('role') === 2)
                                         <td style="text-align: center;">
                                             <a href="#" class="btn btn-warning text-bold update" data-target="#modal-edit" data-toggle="modal" data-id="{{ $item->id_user }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</a>
+                                            @if (session('user_id') === $item->id_user)
+                                            <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+                                            @else
                                             <a href="/spt-project/user/{{ $item->id_user }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+                                            @endif
                                         </td>
                                         @endif
                                     </tr>

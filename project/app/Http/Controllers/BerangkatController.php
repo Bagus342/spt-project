@@ -38,6 +38,7 @@ class BerangkatController extends Controller
 
     public function add(Request $req)
     {
+        $harga = explode('Rp. ', $req->harga);
         return Berangkat::insert([
             'tanggal_keberangkatan' => tanggal($req->tanggal_berangkat),
             'tipe' => $req->tipe,
@@ -51,7 +52,8 @@ class BerangkatController extends Controller
             'berat_timbang' => $req->berat_timbang,
             'tara_mbl' => $req->tara_mbl,
             'netto' => $req->netto,
-            'harga' => $req->harga,
+            'status' => false,
+            'harga' => str_replace('.', '', $harga[1]),
         ])
             ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
             : redirect()->back()->with('error', 'gagal menambah data');
@@ -59,6 +61,7 @@ class BerangkatController extends Controller
 
     public function update(Request $req, $id)
     {
+        $uharga = explode('Rp. ', $req->uharga);
         return Berangkat::where('id_keberangkatan', $id)->update([
             'tanggal_keberangkatan' => tanggal($req->utanggal_berangkat),
             'tipe' => $req->utipe,
@@ -72,7 +75,8 @@ class BerangkatController extends Controller
             'berat_timbang' => $req->uberat_timbang,
             'tara_mbl' => $req->utara_mbl,
             'netto' => $req->unetto,
-            'harga' => $req->uharga,
+            'status' => false,
+            'harga' => str_replace('.', '', $uharga[1]),
         ])
             ? redirect('/berangkat')->with('sukses', 'sukses update data')
             : redirect()->back()->with('error', 'gagal menambah data');

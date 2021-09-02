@@ -21,12 +21,16 @@ class WilayahController extends Controller
     {
         if (Wilayah::where('nama_wilayah', $req->nama_wilayah)->first() === null) {
             $trimHarga = explode(' ', $req->harga_wilayah);
-            return Wilayah::insert([
-                'nama_wilayah' => $req->nama_wilayah,
-                'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
-        ])
-            ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
-            : redirect()->back()->with('error', 'data gagal di tambah');
+            if (count($trimHarga) > 1) {
+                return Wilayah::insert([
+                    'nama_wilayah' => $req->nama_wilayah,
+                    'harga_wilayah' => str_replace('.', '', $trimHarga[1]),
+            ])
+                ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
+                : redirect()->back()->with('error', 'data gagal di tambah');
+            } else {
+                return redirect()->back();
+            }
         }
         else {
             return redirect()->back()->with('error', 'Nama Wilayah Sudah Terdaftar');

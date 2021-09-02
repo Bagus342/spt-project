@@ -79,7 +79,14 @@ class PembayaranController extends Controller
                 'id_keberangkatan' => $data['id_keberangkatan']
             ];
         endforeach;
+        if (count(Pembayaran::whereIn('id_keberangkatan', $req->id)->get()) !== 0) {
+            $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
+            return view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'penerima' => $list[0]['nama_sopir'], 'tgl' => $list[0]['tanggal_bayar'], 'title' => 'Invoice']);
+        }
         $insert = $pembayaran->insert($arr);
+        Berangkat::whereIn('id_keberangkatan', $req->id)->update([
+            'status' => true,
+        ]);
         $list = $pembayaran->join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereIn('tb_pembayaran.id_keberangkatan', $req->id)->get();
         return $insert ? view('cetak-invoice', ['data' => $list, 'inv' => $invoice, 'penerima' => $list[0]['nama_sopir'], 'tgl' => $list[0]['tanggal_bayar'], 'title' => 'Invoice']) : redirect()->back();
     }
@@ -94,7 +101,7 @@ class PembayaranController extends Controller
     {
         $data = Pembayaran::select('id_keberangkatan')->get();
         return view('list-dibayar', [
-            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->get(),
+            'data' => $berangkat->whereNotNull('tanggal_pulang')->whereNotIn('id_keberangkatan', $data)->orderBy('id_keberangkatan', 'asc')->get(),
             'sopir' => Sopir::get(),
             'title' => 'Tambah | Pembayaran'
         ]);

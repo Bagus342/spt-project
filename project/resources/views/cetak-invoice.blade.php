@@ -114,7 +114,7 @@
                 <!-- this row will not appear when printing -->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a id="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a id="button" onclick="pprint('cetak')" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                         <a href="/spt-project/pembayaran" id="button" class="btn btn-default"><i class="fa fa-print"></i>Kembali</a>
                         {{-- <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
                         </button>
@@ -130,15 +130,14 @@
 
 <script>
     const tombol = document.getElementById('button')
-    const documen = document.getElementById('cetak')
 
-    tombol.addEventListener('click', () => {
+    function pprint(id)  {
         var restorepage = document.body.innerHTML
-        var printcontent = documen.innerHTML
+        var printcontent = document.getElementById(id).innerHTML
         document.body.innerHTML = printcontent
         window.print()
-        window.location.reload(true)
-    })
+        document.body.innerHTML = restorepage;
+    }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
