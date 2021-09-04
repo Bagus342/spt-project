@@ -50,7 +50,7 @@
                                                                 <option value="SPT">SPT</option>
                                                                 <option value="AMPERA">AMPERA</option>
                                                             </select>
-                                                            <input type="text" class="form-control float-right" id="date-range" name="tanggal" value="<?= date('d-m-Y') ?> / <?= date('d-m-Y') ?>">
+                                                            <input type="text" class="form-control float-right" id="date-range" name="tanggal" value="<?= date('01-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                         </div>
                                                     </div>
                                                 </div>

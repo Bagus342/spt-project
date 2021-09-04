@@ -469,8 +469,7 @@
         sangu.addEventListener('keyup', function(e) {
 
             const val = this.value.split('Rp. ')
-            val.length > 1 ? sangu.value = formatRupiah(val[1], 'Rp. ') : sangu.value = formatRupiah(this.value, 'Rp. ')
-        });
+            val.length > 1 ? sangu.value = formatRupiah(val[1], 'Rp. ') : sangu.value = null
 
         /* Fungsi formatRupiah */
         function formatRupiah(angka, prefix) {

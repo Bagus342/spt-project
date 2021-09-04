@@ -29,7 +29,7 @@ class WilayahController extends Controller
                 ? redirect('/wilayah')->with('sukses', 'data berhasil di tambah')
                 : redirect()->back()->with('error', 'data gagal di tambah');
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('error', 'data harga belum diisi');
             }
         }
         else {

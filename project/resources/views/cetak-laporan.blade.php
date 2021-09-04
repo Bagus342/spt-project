@@ -43,7 +43,8 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                            <small>Tanggal Cetak : 2/10/2014</small>
+                            <?php $date = date('Y-m-d') ?>
+                            <small>Tanggal Cetak : {{ formatTanggal($date) }}</small>
                         </div>
                         <!-- /.col -->
                     </div> <br>

@@ -40,24 +40,45 @@ class BerangkatController extends Controller
     {
         $harga = explode('Rp. ', $req->harga);
         $sangu = explode('Rp. ', $req->sangu);
-        return Berangkat::insert([
-            'tanggal_keberangkatan' => tanggal($req->tanggal_berangkat),
-            'tipe' => $req->tipe,
-            'no_sp' => $req->no_sp,
-            'no_induk' => $req->no_induk,
-            'wilayah' => $req->wilayah,
-            'nama_petani' => $req->nama_petani,
-            'nama_sopir' => $req->nama_sopir,
-            'pabrik_tujuan' => $req->nama_pabrik,
-            'sangu' => str_replace('.', '', $sangu[1]),
-            'berat_timbang' => $req->berat_timbang,
-            'tara_mbl' => $req->tara_mbl,
-            'netto' => $req->netto,
-            'status' => false,
-            'harga' => str_replace('.', '', $harga[1]),
-        ])
-            ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
-            : redirect()->back()->with('error', 'gagal menambah data');
+        if ($req->sangu === null) {
+            return Berangkat::insert([
+                'tanggal_keberangkatan' => tanggal($req->tanggal_berangkat),
+                'tipe' => $req->tipe,
+                'no_sp' => $req->no_sp,
+                'no_induk' => $req->no_induk,
+                'wilayah' => $req->wilayah,
+                'nama_petani' => $req->nama_petani,
+                'nama_sopir' => $req->nama_sopir,
+                'pabrik_tujuan' => $req->nama_pabrik,
+                'sangu' => $req->sangu,
+                'berat_timbang' => $req->berat_timbang,
+                'tara_mbl' => $req->tara_mbl,
+                'netto' => $req->netto,
+                'status' => false,
+                'harga' => str_replace('.', '', $harga[1]),
+            ])
+                ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
+                : redirect()->back()->with('error', 'gagal menambah data');
+        } else {
+            return Berangkat::insert([
+                'tanggal_keberangkatan' => tanggal($req->tanggal_berangkat),
+                'tipe' => $req->tipe,
+                'no_sp' => $req->no_sp,
+                'no_induk' => $req->no_induk,
+                'wilayah' => $req->wilayah,
+                'nama_petani' => $req->nama_petani,
+                'nama_sopir' => $req->nama_sopir,
+                'pabrik_tujuan' => $req->nama_pabrik,
+                'sangu' => str_replace('.', '', $sangu[1]),
+                'berat_timbang' => $req->berat_timbang,
+                'tara_mbl' => $req->tara_mbl,
+                'netto' => $req->netto,
+                'status' => false,
+                'harga' => str_replace('.', '', $harga[1]),
+            ])
+                ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
+                : redirect()->back()->with('error', 'gagal menambah data');
+        }
     }
 
     public function update(Request $req, $id)

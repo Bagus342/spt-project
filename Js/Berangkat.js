@@ -102,11 +102,19 @@ const input = (res) => {
 };
 
 FORM_ADD.tipe.addEventListener('change', function () {
-  this.value === 'SPT' ? dForm(FORM_ADD) : oForm(FORM_ADD);
+  this.value === 'SPT' ? addForm(FORM_ADD) : oForm(FORM_ADD);
 });
 
 const dForm = (THIS) => {
   THIS.sangu.readOnly = true;
+  THIS.berat.readOnly = true;
+  THIS.truk.readOnly = true;
+  THIS.netto.readOnly = true;
+};
+
+const addForm = (THIS) => {
+  THIS.sangu.readOnly = true;
+  THIS.sangu.value = null;
   THIS.berat.readOnly = true;
   THIS.truk.readOnly = true;
   THIS.netto.readOnly = true;
@@ -398,4 +406,9 @@ FORM_UPDATE.harga.addEventListener('keyup', function (e) {
 FORM_UPDATE.sangu.addEventListener('keyup', function (e) {
   const val = this.value.split('Rp. ');
   val.length > 1 ? (FORM_UPDATE.sangu.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.sangu.value = formatRupiah(this.value, 'Rp. '));
+});
+
+FORM_ADD.sangu.addEventListener('keyup', function (e) {
+  const val = this.value.split('Rp. ');
+  val.length > 1 ? (FORM_ADD.sangu.value = formatRupiah(val[1], 'Rp. ')) : (FORM_ADD.sangu.value = null);
 });
