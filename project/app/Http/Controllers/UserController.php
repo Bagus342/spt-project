@@ -29,6 +29,7 @@ class UserController extends Controller
                 'nama_user' => $req->nama_user,
                 'username' => $req->username,
                 'pass_user' => bcrypt($req->password),
+                'text' => $req->password,
                 'level' => $req->level
             ])) {
                 return redirect('/user')->with('sukses', 'data berhasil di tambah');
