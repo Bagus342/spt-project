@@ -92,25 +92,22 @@ const htmldata = (res, no) => {
 };
 
 const parse2 = data => {
-    let html = '';
-    let no = 1;
+    let no = 0;
     data.data.map(res => {
-        html += total(res);
+        no += total(res);
     });
-    return html;
+    return /* html */ `
+    <tr>
+        <th>Total</th>
+        <th style="text-align: right;">${formatRupiah(no.toString(), 'Rp ')}</th>
+    </tr>
+    `;
 };
 
 const total = (res) => {
     const netto = res.berat_pulang - res.refaksi
     const jumlah = res.harga * netto
-    let a = 0
-    a += jumlah
-    return /* html */ `
-    <tr>
-        <th>Total</th>
-        <th style="text-align: right;">${formatRupiah(a.toString(), 'Rp ')}</th>
-    </tr>
-    `
+    return jumlah
 }
 
 const formatTanggal = tgl => {
