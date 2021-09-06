@@ -398,15 +398,15 @@ if (errorflash.getAttribute('data-flash-error') !== '') {
   });
 }
 
-// FORM_UPDATE.harga.addEventListener('keyup', function (e) {
-//   const val = this.value.split('Rp. ');
-//   val.length > 1 ? (FORM_UPDATE.harga.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.harga.value = formatRupiah(this.value, 'Rp. '));
-// });
+FORM_UPDATE.harga.addEventListener('keyup', function (e) {
+  const val = this.value.split('Rp. ');
+  val.length > 1 ? (FORM_UPDATE.harga.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.harga.value = formatRupiah(this.value, 'Rp. '));
+});
 
-// FORM_UPDATE.sangu.addEventListener('keyup', function (e) {
-//   const val = this.value.split('Rp. ');
-//   val.length > 1 ? (FORM_UPDATE.sangu.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.sangu.value = formatRupiah(this.value, 'Rp. '));
-// });
+FORM_UPDATE.sangu.addEventListener('keyup', function (e) {
+  const val = this.value.split('Rp. ');
+  val.length > 1 ? (FORM_UPDATE.sangu.value = formatRupiah(val[1], 'Rp. ')) : (FORM_UPDATE.sangu.value = formatRupiah(this.value, 'Rp. '));
+});
 
 // FORM_ADD.sangu.addEventListener('keyup', function (e) {
 //   const val = this.value.split('Rp. ');
