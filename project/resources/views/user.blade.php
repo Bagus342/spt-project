@@ -59,8 +59,8 @@
                                         <label for="exampleInputPassword1">Level</label>
                                         <select name="level" class="form-control" required>
                                             <option value="">Pilih</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Super Admin</option>
+                                            <option value="1">Petugas</option>
+                                            <option value="2">Admin</option>
                                         </select>
                                         <span class="text-danger"></span>
                                     </div>
