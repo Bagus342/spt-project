@@ -38,8 +38,8 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <select class="form-control" id="pabrik" name="utipe">
-                                                                <option default>Pabrik Tujuan</option>
+                                                            <select class="form-control" id="pabrik" name="upabrik">
+                                                                <option value="" default>Pabrik Tujuan</option>
                                                                 @foreach ($pg as $i)
                                                                     <option value="{{ $i->nama_pg }}">{{ $i->nama_pg }}</option>
                                                                 @endforeach
@@ -49,7 +49,7 @@
                                                                 <option value="SPT">SPT</option>
                                                                 <option value="AMPERA">AMPERA</option>
                                                             </select>
-                                                            <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('d-m-Y') ?> / <?= date('d-m-Y') ?>">
+                                                            <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('01-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                         </div>
                                                     </div>
                                             </div>

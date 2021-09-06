@@ -31,15 +31,38 @@ class TransaksiController extends Controller
     public function cetakTransaksi(Berangkat $berangkat, Request $req)
     {
         $tgl = explode(' / ', $req->tanggal);
-        if ( $req->tipe === null ) {
+        if ( $req->tipe === null && $req->pabrik !== null ) {
+            // return view('cetak-laporan', [
+            //     'data' => $berangkat->whereNotNull('tanggal_pulang')->orderBy('id_keberangkatan', 'desc')->get()
+            // ]);
             return view('cetak-laporan', [
-                'data' => $berangkat->whereNotNull('tanggal_pulang')->orderBy('id_keberangkatan', 'desc')->get()
+                'data' => $berangkat->whereBetween('tanggal_pulang', [tanggal2($tgl[0]), tanggal2($tgl[1])])
+                    ->where('pabrik_tujuan', $req->pabrik)
+                    ->whereNotNull('tanggal_pulang')
+                    ->get(),
+                'title' => 'Cetak | Transaksi'
             ]);
-        } else {
+        } else if ( $req->pabrik === null && $req->tipe !== null) {
             return view('cetak-laporan', [
-                'data' => $berangkat->whereBetween('created_at', [tanggal2($tgl[0]), tanggal2($tgl[1])])
+                'data' => $berangkat->whereBetween('tanggal_pulang', [tanggal2($tgl[0]), tanggal2($tgl[1])])
+                    ->where('tipe', $req->tipe)
+                    ->whereNotNull('tanggal_pulang')
+                    ->get(),
+                'title' => 'Cetak | Transaksi'
+            ]);
+        } else if ( $req->pabrik !== null && $req->tipe !== null) {
+            return view('cetak-laporan', [
+                'data' => $berangkat->whereBetween('tanggal_pulang', [tanggal2($tgl[0]), tanggal2($tgl[1])])
                     ->where('tipe', $req->tipe)
                     ->where('pabrik_tujuan', $req->pabrik)
+                    ->whereNotNull('tanggal_pulang')
+                    ->get(),
+                'title' => 'Cetak | Transaksi'
+            ]);
+        }
+        else {
+            return view('cetak-laporan', [
+                'data' => $berangkat->whereBetween('tanggal_pulang', [tanggal2($tgl[0]), tanggal2($tgl[1])])
                     ->whereNotNull('tanggal_pulang')
                     ->get(),
                 'title' => 'Cetak | Transaksi'

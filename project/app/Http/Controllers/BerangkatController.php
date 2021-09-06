@@ -50,7 +50,7 @@ class BerangkatController extends Controller
                 'nama_petani' => $req->nama_petani,
                 'nama_sopir' => $req->nama_sopir,
                 'pabrik_tujuan' => $req->nama_pabrik,
-                'sangu' => $req->sangu,
+                'sangu' => str_replace('.', '', $harga[1]),
                 'berat_timbang' => $req->berat_timbang,
                 'tara_mbl' => $req->tara_mbl,
                 'netto' => $req->netto,

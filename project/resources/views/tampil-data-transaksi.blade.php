@@ -40,7 +40,7 @@
                                                             <div class="input-group-prepend">
                                                             </div>
                                                             <select class="form-control" id="pabrik" name="pabrik">
-                                                                <option default>Pabrik Tujuan</option>
+                                                                <option value="" default>Pabrik Tujuan</option>
                                                                 @foreach ($pg as $i)
                                                                     <option value="{{ $i->nama_pg }}">{{ $i->nama_pg }}</option>
                                                                 @endforeach
