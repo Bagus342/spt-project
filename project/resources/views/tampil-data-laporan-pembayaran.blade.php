@@ -47,7 +47,7 @@
                                                             <select class="form-control" id="type" name="utipe">
                                                                 <option default value="">Tipe</option>
                                                                 <option value="SPT">SPT</option>
-                                                                <option value="AMPERA">AMPERA</option>
+                                                                <option value="AMPERAN">AMPERAN</option>
                                                             </select>
                                                             <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('01-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                         </div>
