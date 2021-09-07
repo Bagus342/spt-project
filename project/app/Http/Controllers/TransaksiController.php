@@ -14,10 +14,11 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Berangkat $berangkat)
+    public function index(Berangkat $berangkat, Pembayaran $pembayaran)
     {
         return view('tampil-data-transaksi', [
             'list' => $berangkat->whereNotNull('tanggal_pulang')->whereMonth('tanggal_pulang', date('m'))->orderBy('id_keberangkatan', 'asc')->get(),
+            'pembayaran' => $pembayaran->get(),
             'pg' => Pg::get(),
             'title' => 'Transaksi'
         ]);

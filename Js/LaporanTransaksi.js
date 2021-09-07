@@ -79,15 +79,24 @@ const htmldata = (res, no) => {
             ? 'Belum Pulang'
             : formatTanggal(res.tanggal_pulang)
         }</td>
+	<td>${formatTanggal(res.tanggal_bongkar)
+        }</td>
 	<td>${res.tipe}</td>
 	<td>${res.nama_petani}</td>
 	<td>${res.nama_sopir}</td>
 	<td>${res.no_sp}</td>
 	<td>${res.no_truk == null ? 'Belum Pulang' : res.no_truk}</td>
 	<td>${res.pabrik_tujuan}</td>
+	<td>${res.wilayah}</td>
+	<td>${res.berat_pulang}</td>
+	<td>${res.refaksi}</td>
 	<td>${berat}</td>
 	<td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
 	<td>${formatRupiah(total.toString(), 'Rp ')}</td>
+    <td>${res.tipe === 'SPT' ? '-' : formatRupiah(res.sangu.toString(), 'Rp ')}</td>
+    <td>${res.tipe === 'SPT' ? '-' : res.berat_timbang}</td>
+    <td>${res.tipe === 'SPT' ? '-' : res.tara_mbl}</td>
+    <td>${res.tipe === 'SPT' ? '-' : res.berat_timbang - res.tara_mbl}</td>
 	</tr>`;
 };
 

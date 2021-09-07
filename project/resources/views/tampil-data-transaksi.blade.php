@@ -102,15 +102,23 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                                     <td>{{ $item->tanggal_pulang === null ? 'belum pulang' : formatTanggal($item->tanggal_pulang) }}</td>
+                                                    <td>{{ $item->tanggal_bongkar }}</td>
                                                     <td>{{ $item->tipe }}</td>
                                                     <td>{{ $item->nama_petani }}</td>
                                                     <td>{{ $item->nama_sopir }}</td>
                                                     <td>{{ $item->no_sp }}</td>
                                                     <td>{{ $item->no_truk === null ? 'belum pulang' : $item->no_truk }}</td>
                                                     <td>{{ $item->pabrik_tujuan }}</td>
+                                                    <td>{{ $item->wilayah }}</td>
+                                                    <td>{{ $item->berat_pulang }}</td>
+                                                    <td>{{ $item->refaksi }}</td>
                                                     <td>{{ $item->berat_pulang - $item->refaksi }}</td>
                                                     <td>{{ formatRupiah($item->harga) }}</td>
                                                     <td>{{ formatRupiah($item->harga * ($item->berat_pulang - $item->refaksi)) }}</td>
+                                                    <td>{{ $item->tipe === 'SPT' ? '-' : formatRupiah($item->sangu) }}</td>
+                                                    <td>{{ $item->tipe === 'SPT' ? '-' : $item->berat_timbang }}</td>
+                                                    <td>{{ $item->tipe === 'SPT' ? '-' : $item->tara_mbl }}</td>
+                                                    <td>{{ $item->tipe === 'SPT' ? '-' : $item->berat_timbang - $item->tara_mbl }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
