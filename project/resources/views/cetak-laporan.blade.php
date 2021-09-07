@@ -22,6 +22,13 @@
             size: landscape;
         }
 
+        th{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+        }
+
     </style>
 </head>
 
@@ -53,7 +60,7 @@
                     <!-- Table row -->
                     <div class="row">
                         <div class="col-xs-12 table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" style="white-space: nowrap;">
                                 <thead>
                                     <tr>
                                         <th>No</th>

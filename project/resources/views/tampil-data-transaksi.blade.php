@@ -68,24 +68,32 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="tb" class="table table-bordered table-striped ">
+                                    <table id="tb" class="table table-bordered table-striped " style="white-space: nowrap;">
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center">
                                                 <th>No</th>
                                                 <th>Tanggal Berangkat</th>
                                                 <th>Tanggal Pulang</th>
+                                                <th>Tgl Bongkar</th>
                                                 <th>Tipe</th>
                                                 <th>Pemilik</th>
                                                 <th>Petani</th>
                                                 <th>No SP</th>
                                                 <th>No Truk</th>
                                                 <th>Pabrik Tujuan</th>
+                                                <th>Wilayah</th>
+                                                <th>Berat Pulang</th>
+                                                <th>Rafaksi</th>
                                                 <th>Berat Bersih</th>
                                                 <th>Harga</th>
                                                 <th>Subtotal</th>
+                                                <th>Sangu</th>
+                                                <th>Berat Timbang</th>
+                                                <th>Tara mobil</th>
+                                                <th>Netto   </th>
                                             </tr>
                                         </thead>
-                                        <tbody id='list-data'>
+                                        <tbody id='list-data' style="text-align: center">
                                             <?php $no = 1; ?>
                                             <?php $c = 0; ?>
                                             @foreach ($list as $item)
@@ -108,15 +116,16 @@
                                         </tbody>
                                     </table>
                                     </table>
-                                    <div class="tota mt-3">
-                                        <table id="total" class="table table-bordered" style="width: 100%;">
-                                            <tr>
-                                                <th>Total</th>
-                                                <th style="text-align: right;">{{ formatRupiah($c) }}</th>
-                                            </tr>
-                                        </table>
-                                    </div>
 
+
+                                </div>
+                                <div class="tota mt-3">
+                                    <table id="total" class="table table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th>Total</th>
+                                            <th style="text-align: right;">{{ formatRupiah($c) }}</th>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
 
