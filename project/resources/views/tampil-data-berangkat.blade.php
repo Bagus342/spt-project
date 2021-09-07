@@ -37,7 +37,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                     </div>
-                                                    <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('d-m-Y') ?> / <?= date('d-m-Y') ?>">
+                                                    <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('01-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                     <select name="tipe" id="tipe" class="custom-select">
                                         <option selected value="">Pilih</option>
                                         <option value="SPT">SPT</option>
-                                        <option value="AMPERA">AMPERAN</option>
+                                        <option value="AMPERAN">AMPERAN</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -318,7 +318,7 @@
                                     <label for="tipe">Tipe</label>
                                     <select class="form-control" id="utipe" name="utipe">
                                         <option value="SPT">SPT</option>
-                                        <option value="AMPERA">AMPERA</option>
+                                        <option value="AMPERAN">AMPERAN</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

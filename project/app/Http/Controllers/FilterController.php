@@ -30,6 +30,7 @@ class FilterController extends Controller
                 'data' => Berangkat::whereBetween('tanggal_pulang', [$req->tgl1, $req->tgl2])
                     ->where('tipe', $req->type)
                     ->whereNotNull('tanggal_pulang')
+                    ->orderBy('id_keberangkatan', 'asc')
                     ->get()
             ]);
         } else if ($req->type === null && $req->tujuan !== null) {
@@ -37,6 +38,7 @@ class FilterController extends Controller
                 'data' => Berangkat::whereBetween('tanggal_pulang', [$req->tgl1, $req->tgl2])
                     ->where('pabrik_tujuan', $req->tujuan)
                     ->whereNotNull('tanggal_pulang')
+                    ->orderBy('id_keberangkatan', 'asc')
                     ->get()
             ]);
         } else if ($req->type !== null && $req->tujuan !== null) {
@@ -45,12 +47,14 @@ class FilterController extends Controller
                     ->where('tipe', $req->type)
                     ->where('pabrik_tujuan', $req->tujuan)
                     ->whereNotNull('tanggal_pulang')
+                    ->orderBy('id_keberangkatan', 'asc')
                     ->get()
             ]);
         } else {
         return response()->json([
             'data' => Berangkat::whereBetween('tanggal_pulang', [$req->tgl1, $req->tgl2])
                 ->whereNotNull('tanggal_pulang')
+                ->orderBy('id_keberangkatan', 'asc')
                 ->get()
         ]);
         }
@@ -61,21 +65,21 @@ class FilterController extends Controller
         if ($req->tujuan === null && $req->type !== null) {
             return response()->json([
                 'data' => Pembayaran::rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')
-                    ->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
+                    ->whereBetween('tb_pembayaran.tanggal_bayar', [$req->tgl1, $req->tgl2])
                     ->where('tipe', $req->type)
                     ->get()
             ]);
         } else if ($req->type === null && $req->tujuan !== null) {
             return response()->json([
                 'data' => Pembayaran::rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')
-                    ->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
+                    ->whereBetween('tb_pembayaran.tanggal_bayar', [$req->tgl1, $req->tgl2])
                     ->where('pabrik_tujuan', $req->tujuan)
                     ->get()
             ]);
         } else if ($req->type !== null && $req->tujuan !== null) {
             return response()->json([
                 'data' => Pembayaran::rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')
-                    ->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
+                    ->whereBetween('tb_pembayaran.tanggal_bayar', [$req->tgl1, $req->tgl2])
                     ->where('tipe', $req->type)
                     ->where('pabrik_tujuan', $req->tujuan)
                     ->get()
@@ -83,7 +87,7 @@ class FilterController extends Controller
         } else {
             return response()->json([
                 'data' => Pembayaran::rightJoin('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')
-                    ->whereBetween('tb_pembayaran.created_at', [$req->tgl1, $req->tgl2])
+                    ->whereBetween('tb_pembayaran.tanggal_bayar', [$req->tgl1, $req->tgl2])
                     ->get()
             ]);
         }

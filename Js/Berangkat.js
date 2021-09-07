@@ -312,7 +312,7 @@ const htmldata = (res, no) => {
 const formatTanggal = (tgl) => {
   const listMonth = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'November', 'Desember'];
   const month = tgl.split('-');
-  return `${month[2]}/${listMonth[parseInt(month[1]) - 1]}/${month[0]}`;
+  return `${month[2]}/${month[1]}/${month[0]}`;
 };
 
 const formatRupiah = (angka, prefix) => {
