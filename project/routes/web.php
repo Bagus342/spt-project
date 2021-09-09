@@ -208,6 +208,7 @@ Route::post('/filterpulang', [FilterController::class, 'FilterData'])->middlewar
 Route::post('/filtertransaksi', [FilterController::class, 'FilterTData'])->middleware('myAuth');
 Route::post('/filterlaporan', [FilterController::class, 'FilterLPData'])->middleware('myAuth');
 Route::post('/filterpembayaran', [FilterController::class, 'FilterPData'])->middleware('myAuth');
+Route::post('/filterlist', [FilterController::class, 'FilterLData'])->middleware('myAuth');
 Route::get('/pilih', [FilterController::class, 'getSopir'])->middleware('myAuth');
 Route::get('/detail', [FilterController::class, 'getDetail'])->middleware('myAuth');
 Route::get('/detailp', [FilterController::class, 'getDetailP'])->middleware('myAuth');

@@ -38,7 +38,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <input type="text" class="form-control float-right" id="date-range" name="date" value="<?= date('m/d/Y') ?> - <?= date('m/d/Y') ?>">
+                                                            <input type="text" class="form-control float-right" id="date-range" name="tanggal" value="<?= date('01-m-Y') ?> / <?= date('d-m-Y') ?>">
                                                         </div>
                                                     </div>
                                             </div>
@@ -167,7 +167,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nomor SP</label>
-                                        <input type="text" class="form-control" placeholder="Refaksi " name="no_sp">
+                                        <input type="text" class="form-control" placeholder="Input Number " name="no_sp">
                                         <span class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -208,21 +208,5 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        $('#date-range')
-            .daterangepicker({
-                locale: {
-                    format: 'YYYY-MM-DD',
-                    separator: " / "
-                }
-            });
-        $('#1').datepicker({
-            inputs: $('input[name=tanggal_pulang]'),
-            format: 'dd/mm/yyyy'
-        })
-        $('#2').datepicker({
-            inputs: $('input[name=tanggal_bongkar]'),
-            format: 'dd/mm/yyyy'
-        })
-    </script>
+    <script src="{{ asset('Js/Range.js') }}"></script>
 @endsection

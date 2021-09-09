@@ -81,11 +81,11 @@
                                                 @foreach ($data as $item)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td></td>
+                                                        <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
                                                         <td>{{ $item->no_sp }}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>{{ $item->no_truk }}</td>
+                                                        <td>{{ $item->pabrik_tujuan }}</td>
+                                                        <td>{{ $item->nama_sopir }}</td>
                                                         <td>{{ $item->wilayah }}</td>
                                                         <td>{{ formatRupiah($item->harga) }}</td>
                                                         <td style="text-align: center;">

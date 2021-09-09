@@ -112,23 +112,44 @@ const parse = data => {
 };
 
 const htmldata = (res, no) => {
-    return /*html*/ `<tr>
+    if (res.status) {
+        return /*html*/ `<tr>
     <td>${no}</td>
-    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+    <td>${formatTanggal(res.tanggal_pulang)}</td>
     <td>${res.no_sp}</td>
-    <td>${res.nama_petani}</td>
-    <td>${res.no_induk}</td>
+    <td>${res.no_truk}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.nama_sopir}</td>
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
         <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
-        }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
-        }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <a href="/spt-project/pulang/${res.id_keberangkatan
-        }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+            }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+        <button type="button" disabled class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+            }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
     </td>
-</tr>`;
+</tr>`
+    } else {
+        return /*html*/ `<tr>
+    <td>${no}</td>
+    <td>${formatTanggal(res.tanggal_pulang)}</td>
+    <td>${res.no_sp}</td>
+    <td>${res.no_truk}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.wilayah}</td>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td style="text-align: center;">
+        <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
+            }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+        <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+            }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <a href="/spt-project/pulang/${res.id_keberangkatan
+            }" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
+    </td>
+</tr>`
+    }
 };
 
 const tablePagination = () => {
