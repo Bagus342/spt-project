@@ -8,10 +8,12 @@ checkAll.onchange = function () {
         if (this.checked) {
             for (let i = 0; i < cl.length; i++) {
                 cl[i].checked = true;
+                document.getElementById('bayar').disabled = false;
             }
         } else {
             for (let i = 0; i < cl.length; i++) {
                 cl[i].checked = false;
+                document.getElementById('bayar').disabled = true;
             }
         }
     }
@@ -20,10 +22,11 @@ checkAll.onchange = function () {
 function ch() {
     const cl = document.getElementsByClassName('cl')
     for (let i = 0; i < cl.length; i++) {
-        if (cl[i].checked === true) {
-            document.getElementById('bayar').disabled = false;
-        } else {
-            document.getElementById('bayar').disabled = true;
+        console.log(cl[i].checked)
+        cl[i].onchange = function () {
+            if (cl[i].checked) {
+                document.getElementById('bayar').disabled = false;
+            }
         }
     }
 }
