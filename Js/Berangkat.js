@@ -290,7 +290,25 @@ const parse = (data) => {
 };
 
 const htmldata = (res, no) => {
-  return /*html*/ `<tr>
+  if (res.tanggal_pulang !== null) {
+    return /*html*/ `<tr>
+    <td>${no}</td>
+    <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
+    <td>${res.no_sp}</td>
+    <td>${res.nama_petani}</td>
+    <td>${res.nama_sopir}</td>
+    <td>${res.pabrik_tujuan}</td>
+    <td>${res.no_induk}</td>
+    <td>${res.wilayah}</td>
+    <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
+    <td style="text-align: center;">
+        <button type="button" disabled class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}">
+        <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+    </td>
+</tr>`;
+  } else {
+    return /*html*/ `<tr>
     <td>${no}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
     <td>${res.no_sp}</td>
@@ -303,9 +321,12 @@ const htmldata = (res, no) => {
     <td style="text-align: center;">
         <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}">
             <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+        
         <a href="${URL}/berangkat/${res.id_keberangkatan}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
     </td>
 </tr>`;
+  }
+
 };
 
 // optional function

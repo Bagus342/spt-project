@@ -135,7 +135,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="inputGroupSelect01">Tipe</label>
                                     </div>
-                                    <select name="tipe" id="tipe" class="custom-select">
+                                    <select name="tipe" id="tipe" class="custom-select" required>
                                         <option selected value="">Pilih</option>
                                         <option value="SPT">SPT</option>
                                         <option value="AMPERAN">AMPERAN</option>
