@@ -223,17 +223,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Sangu</label>
-                                    <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control harga" placeholder="Harga " name="sangu" required>
+                                    <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control harga" placeholder="Sangu " name="sangu" required readonly>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Berat (Kuintal)</label>
-                                    <input type="number" class="form-control" placeholder="Berat Timbang " name="berat_timbang" required>
+                                    <input type="number" class="form-control" placeholder="Berat Timbang " name="berat_timbang" required readonly>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tara MBL</label>
-                                    <input type="number" class="form-control" placeholder="Tara MBL " name="tara_mbl" required>
+                                    <input type="number" class="form-control" placeholder="Tara MBL " name="tara_mbl" required readonly>
                                     <span class="text-dark"></span>
                                 </div>
                                 <div class="form-group">

@@ -61,10 +61,11 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Tanggal Berangkat</th>
+                                                <th>Tanggal Pulang</th>
                                                 <th>No SP</th>
-                                                <th>Nama Pemilik</th>
-                                                <th>No Induk</th>
+                                                <th>No Truck</th>
+                                                <th>Pabrik</th>
+                                                <th>Petani</th>
                                                 <th>Wilayah</th>
                                                 <th>Harga</th>
                                                 <th style="text-align: center;">action</th>
@@ -80,10 +81,11 @@
                                                 @foreach ($data as $item)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
+                                                        <td></td>
                                                         <td>{{ $item->no_sp }}</td>
-                                                        <td>{{ $item->nama_petani }}</td>
-                                                        <td>{{ $item->no_induk }}</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td>{{ $item->wilayah }}</td>
                                                         <td>{{ formatRupiah($item->harga) }}</td>
                                                         <td style="text-align: center;">
