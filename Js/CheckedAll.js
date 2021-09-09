@@ -17,6 +17,19 @@ checkAll.onchange = function () {
     }
 };
 
+function ch() {
+    const cl = document.getElementsByClassName('cl')
+    for (let i = 0; i < cl.length; i++) {
+        if (cl[i].checked === true) {
+            document.getElementById('bayar').disabled = false;
+        } else {
+            document.getElementById('bayar').disabled = true;
+        }
+    }
+}
+
+ch()
+
 document.getElementById('filter').addEventListener('click', function () {
     getSopir();
 });
@@ -39,9 +52,10 @@ function getSopir() {
                 res.pembayaran
             );
             res.type === 'base' ? dCheckbox() : oCheckbox();
-            res.type === 'base'
-                ? (document.getElementById('bayar').disabled = true)
-                : (document.getElementById('bayar').disabled = false);
+            // res.type === 'base'
+            //     ? (document.getElementById('bayar').disabled = true)
+            //     : (document.getElementById('bayar').disabled = false);
+            ch();
         });
 }
 

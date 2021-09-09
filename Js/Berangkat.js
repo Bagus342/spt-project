@@ -268,7 +268,11 @@ FORM_UPDATE.wilayah.addEventListener('change', function () {
 
 BTN.uharga.onclick = async function () {
   const HARGA = FORM_ADD.harga.value;
-  const DATA = await fetch(URL + `/wilayah/harga/${DATA_HARGA.id}/${HARGA}`);
+  const s = HARGA.split('Rp. ')
+  const a = s[1]
+  const h = a.split('.')
+  console.log(`${h[0]}${h[1]}`)
+  const DATA = await fetch(URL + `/wilayah/harga/${DATA_HARGA.id}/${h[0]}${h[1]}`);
   const RESULT = await DATA.json();
   RESULT.status === 'sukses' ? toastr.success('sukses update harga', 'update harga') : toastr.error('gagal update harga', 'update harga');
 };
