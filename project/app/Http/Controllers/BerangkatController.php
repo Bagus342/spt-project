@@ -55,7 +55,7 @@ class BerangkatController extends Controller
                 'tara_mbl' => $req->tara_mbl,
                 'netto' => $req->netto,
                 'status' => false,
-                'harga' => $req->harga,
+                'harga' => str_replace('.', '', $harga[1]),
             ])
                 ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
                 : redirect()->back()->with('error', 'gagal menambah data');
@@ -74,7 +74,7 @@ class BerangkatController extends Controller
                 'tara_mbl' => $req->tara_mbl,
                 'netto' => $req->netto,
                 'status' => false,
-                'harga' => $req->harga,
+                'harga' => str_replace('.', '', $harga[1]),
             ])
                 ? redirect('/berangkat')->with('sukses', 'sukses tambah data')
                 : redirect()->back()->with('error', 'gagal menambah data');

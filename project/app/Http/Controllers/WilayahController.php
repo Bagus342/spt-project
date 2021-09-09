@@ -101,9 +101,10 @@ class WilayahController extends Controller
 
     public function updateHarga($id, $harga)
     {
+        $h = explode('Rp. ', $harga);
         return response()->json([
             'status' => Wilayah::where('id_wilayah', $id)->update([
-                'harga_wilayah' => $harga
+                'harga_wilayah' => str_replace('.', '', $h[1])
             ]) ? 'sukses' : 'gagal'
         ]);
     }
