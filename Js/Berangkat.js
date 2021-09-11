@@ -302,9 +302,9 @@ const htmldata = (res, no) => {
     <td>${res.wilayah}</td>
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
-        <button type="button" disabled class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}">
+        <button type="button" disabled class="btn btn-secondary text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="${res.id_keberangkatan}">
         <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+        <button disabled="disabled" class="btn btn-secondary text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
     </td>
 </tr>`;
   } else {

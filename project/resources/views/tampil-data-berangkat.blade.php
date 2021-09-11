@@ -91,12 +91,14 @@
                                             <td>{{ $item->wilayah }}</td>
                                             <td>{{ formatRupiah($item->harga) }}</td>
                                             <td style="text-align: center;">
-                                                <button type="button" {{ $item->tanggal_pulang != null ? 'disabled' : '' }} class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
-                                                    <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                 @if ($item->tanggal_pulang == null)
+                                                <button type="button" class="btn btn-warning text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                    <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                 <a href="/spt-project/berangkat/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                 @else
-                                                <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+                                                <button type="button" disabled class="btn btn-secondary text-bold update" data-toggle="modal" data-target="#exampleModal" data-id="{{ $item->id_keberangkatan }}">
+                                                    <i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+                                                <button disabled="disabled" class="btn btn-secondary text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
                                                 @endif
                                             </td>
                                         </tr>
@@ -153,7 +155,7 @@
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect01">Wilayah</label>
                                             </div>
-                                            <select name="wilayah" class="custom-select" id="wilayah1">
+                                            <select name="wilayah" class="custom-select" id="wilayah1" required>
                                                 <option selected value="">Pilih...</option>
                                                 @foreach ($wilayah as $item)
                                                 <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}
@@ -166,7 +168,7 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Nama
                                                     Pabrik</label>
                                             </div>
-                                            <select name="nama_pabrik" class="custom-select" id="pabrik">
+                                            <select name="nama_pabrik" class="custom-select" id="pabrik" required>
                                                 <option selected value="">Pilih...</option>
                                                 @foreach ($pg as $item)
                                                 <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>
@@ -180,7 +182,7 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Nama
                                                     Petani</label>
                                             </div>
-                                            <select name="nama_sopir" class="custom-select">
+                                            <select name="nama_sopir" class="custom-select" required>
                                                 <option selected value="">Pilih...</option>
                                                 @foreach ($sopir as $item)
                                                 <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}
@@ -193,7 +195,7 @@
                                                 <label class="input-group-text" for="inputGroupSelect01">Nama
                                                     Pemilik</label>
                                             </div>
-                                            <select name="nama_petani" class="custom-select" id="pemilik">
+                                            <select name="nama_petani" class="custom-select" id="pemilik" required>
                                                 <option selected value="">Pilih...</option>
                                             </select>
                                         </div>
@@ -309,7 +311,7 @@
                     <div class="modal-body">
                         <div class="form-group" id="2">
                             <label for="tglberangkat">Tanggal Berangkat</label>
-                            <input type="text" name="utanggal_berangkat" class="form-control">
+                            <input type="text" name="utanggal_berangkat" class="form-control" required>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -327,11 +329,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="noinduk">No Induk</label>
-                                    <input type="text" name="uno_induk" class="form-control" id="noinduk" placeholder="No Induk">
+                                    <input type="text" name="uno_induk" class="form-control" id="noinduk" placeholder="No Induk" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="wilayah">Wilayah</label>
-                                    <select class="form-control" id="wilayah" name="uwilayah">
+                                    <select class="form-control" id="wilayah" name="uwilayah" required>
                                         <option selected value="">Pilih...</option>
                                         @foreach ($wilayah as $item)
                                         <option value="{{ $item->nama_wilayah }}">{{ $item->nama_wilayah }}</option>
@@ -340,7 +342,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="namapetani">Nama Pemilik</label>
-                                    <select class="form-control" id="namapetani" name="unama_petani">
+                                    <select class="form-control" id="namapetani" name="unama_petani" required>
                                         <option selected value="">Pilih...</option>
                                         @foreach ($petani as $item)
                                         <option value="{{ $item->nama_pemilik }}">{{ $item->nama_pemilik }}</option>
@@ -349,7 +351,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="namasopir">Nama Petani</label>
-                                    <select class="form-control" id="namasopir" name="unama_sopir">
+                                    <select class="form-control" id="namasopir" name="unama_sopir" required>
                                         <option selected value="">Pilih...</option>
                                         @foreach ($sopir as $item)
                                         <option value="{{ $item->nama_petani }}">{{ $item->nama_petani }}</option>
@@ -361,7 +363,7 @@
 
                                 <div class="form-group">
                                     <label for="pabriktujuan">Pabrik Tujuan</label>
-                                    <select class="form-control" id="pabriktujuan" name="upabrik_tujuan">
+                                    <select class="form-control" id="pabriktujuan" name="upabrik_tujuan" required>
                                         <option selected value="">Pilih...</option>
                                         @foreach ($pg as $item)
                                         <option value="{{ $item->nama_pg }}">{{ $item->nama_pg }}</option>

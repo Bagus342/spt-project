@@ -125,9 +125,9 @@ const htmldata = (res, no) => {
     <td style="text-align: center;">
         <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="${res.id_keberangkatan
             }"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-        <button type="button" disabled class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
+        <button type="button" disabled class="btn btn-secondary text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="${res.id_keberangkatan
             }"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
-        <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+        <button disabled="disabled" class="btn btn-secondary text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
     </td>
 </tr>`
     } else {

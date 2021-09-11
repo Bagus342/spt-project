@@ -22,6 +22,15 @@
             size: landscape;
         }
 
+        @media print {
+            footer {
+                display: none;
+            }
+            header {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 

@@ -89,11 +89,13 @@
                                                         <td>{{ $item->wilayah }}</td>
                                                         <td>{{ formatRupiah($item->harga) }}</td>
                                                         <td style="text-align: center;">
-                                                            <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
-                                                            <button type="button" {{ $item->status ? 'disabled' : '' }} class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                             @if ($item->status)
-                                                            <button disabled="disabled" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
+                                                            <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+                                                            <button type="button" disabled class="btn btn-secondary text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
+                                                            <button disabled="disabled" class="btn btn-secondary text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</button>
                                                             @else
+                                                            <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
+                                                            <button type="button" class="btn btn-warning text-bold update" data-target="#modal-lg" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-pencil-alt"></i>&nbsp;Ubah</button>
                                                             <a href="/spt-project/pulang/{{ $item->id_keberangkatan }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
                                                             @endif
                                                             

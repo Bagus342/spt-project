@@ -10,7 +10,7 @@ class FilterController extends Controller
 {
     public function FilterBData(Request $req)
     {
-        return response()->json(['data' => Berangkat::whereBetween('created_at', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
+        return response()->json(['data' => Berangkat::whereBetween('tanggal_keberangkatan', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
     }
 
     public function FilterLData(Request $req)

@@ -28,6 +28,10 @@
         td{
             text-align: center;
         }
+        
+        header {
+            display: none;
+        }
 
     </style>
 </head>
