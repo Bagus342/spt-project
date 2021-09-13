@@ -8,6 +8,7 @@ checkAll.onchange = function () {
     if (this.checked) {
       for (let i = 0; i < cl.length; i++) {
         cl[i].checked = true;
+        array.push({ in: cl[i].value })
         document.getElementById('bayar').disabled = false;
       }
     } else {
@@ -33,6 +34,7 @@ function ch() {
           if (x.in === cl[i].value) {
             deleteArray(cl[i].value);
             if (array.length === 0) {
+              checkAll.checked = false
               document.getElementById('bayar').disabled = true;
             }
           }
