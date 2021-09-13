@@ -101,9 +101,14 @@ const input = (res) => {
     `;
 };
 
-FORM_ADD.tipe.addEventListener('change', function () {
-  this.value === 'SPT' ? addForm(FORM_ADD) : oForm(FORM_ADD);
-});
+function a() {
+  const key = document.getElementById('tipe')
+  if (key.value === 'AMPERAN') {
+    oForm(FORM_ADD)
+  } else {
+    addForm(FORM_ADD)
+  }
+}
 
 const dForm = (THIS) => {
   THIS.sangu.readOnly = true;
