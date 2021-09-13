@@ -14,6 +14,10 @@ checkAll.onchange = function () {
     } else {
       for (let i = 0; i < cl.length; i++) {
         cl[i].checked = false;
+        array.map((x) => {
+          deleteArray(x.in)
+        })
+        console.log(array)
         document.getElementById('bayar').disabled = true;
       }
     }
