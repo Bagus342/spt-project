@@ -102,7 +102,7 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ formatTanggal($item->tanggal_keberangkatan) }}</td>
                                                     <td>{{ $item->tanggal_pulang === null ? 'belum pulang' : formatTanggal($item->tanggal_pulang) }}</td>
-                                                    <td>{{ $item->tanggal_bongkar }}</td>
+                                                    <td>{{ formatTanggal($item->tanggal_bongkar) }}</td>
                                                     <td>{{ $item->tipe }}</td>
                                                     <td>{{ $item->nama_petani }}</td>
                                                     <td>{{ $item->nama_sopir }}</td>
