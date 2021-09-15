@@ -15,7 +15,6 @@ function filter() {
 }
 
 function getfilter() {
-    const pabrik = document.getElementById('pabrik').value;
     const type = document.getElementById('type').value;
     const date = document.getElementById('date-range').value;
     const split = date.split(' / ');
@@ -29,7 +28,6 @@ function getfilter() {
             tgl1: date1,
             tgl2: date2,
             type: type,
-            tujuan: pabrik,
         }),
         headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': TOKEN },
     })

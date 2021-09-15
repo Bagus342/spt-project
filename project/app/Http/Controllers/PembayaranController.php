@@ -37,7 +37,7 @@ class PembayaranController extends Controller
         $last = $pembayaran->latest()->first();
         $pecah = $last === null ? 0 : explode("/", $last['no_invoice']);
         $parseid = $last === null ? 0 : (int) $pecah[0];
-        return "{$this->makeZero($parseid)}/INV/{$this->getMounth(date('m'))}/" . date('Y');
+        return "{$this->makeZero($parseid)}/RG/{$this->getMounth(date('m'))}/" . date('Y');
     }
 
     public function makeZero($id)

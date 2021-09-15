@@ -83,7 +83,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
-                                            <td>{{ $item->no_sp === null ? 'kosong' : $item->no_sp }}</td>
+                                            <td>{{ $item->no_sp === null ? '-' : $item->no_sp }}</td>
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->nama_sopir }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>

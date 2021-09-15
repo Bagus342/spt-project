@@ -32,18 +32,12 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="row">
-                                            <div class="col-9">
+                                            <div class="col-7">
                                                 <form>
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                             </div>
-                                                            <select class="form-control" id="pabrik" name="upabrik">
-                                                                <option value="" default>Pabrik Tujuan</option>
-                                                                @foreach ($pg as $i)
-                                                                    <option value="{{ $i->nama_pg }}">{{ $i->nama_pg }}</option>
-                                                                @endforeach
-                                                            </select>
                                                             <select class="form-control" id="type" name="utipe">
                                                                 <option default value="">Tipe</option>
                                                                 <option value="SPT">SPT</option>

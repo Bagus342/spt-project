@@ -75,7 +75,7 @@
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->no_induk }}</td>
-                                            <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->no_sp === null ? '-' : $item->no_sp }}</td>
                                             <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ $item->nama_sopir }}</td>
                                             <td>
