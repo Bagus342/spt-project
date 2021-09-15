@@ -67,7 +67,7 @@
                                                 <th>Pabrik</th>
                                                 <th>Petani</th>
                                                 <th>Wilayah</th>
-                                                <th>Harga</th>
+                                                <th>Berat bersih</th>
                                                 <th style="text-align: center;">action</th>
                                             </tr>
                                         </thead>
@@ -103,6 +103,15 @@
                                                     </tr>
                                                 @endforeach
                                             @endif
+                                    </table>
+                                </div>
+
+                                <div class="total mt-3">
+                                    <table id="total" class="table table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th>Total berat bersih</th>
+                                            <th style="text-align: right; width: 75%;">12Kw</th>
+                                        </tr>
                                     </table>
                                 </div>
 

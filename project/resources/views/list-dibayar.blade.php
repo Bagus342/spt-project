@@ -64,15 +64,15 @@
                                     <thead>
                                         <tr>
                                             <th><input type="checkbox" id="check-all" disabled></th>
+                                            <th>Tanggal Berangkat</th>
                                             <th>Tanggal Pulang</th>
                                             <th>Tipe</th>
                                             <th>No SP</th>
+                                            <th>No Induk</th>
                                             <th>Nama Pemilik</th>
                                             <th>Nama Petani</th>
-                                            <th>Tujuan</th>
-                                            <th>Tanggal Berangkat</th>
-                                            <th>No Induk</th>
                                             <th>No Truk</th>
+                                            <th>Pabrik Tujuan</th>
                                             <th>Berat Bersih</th>
                                             <th>Harga</th>
                                             <th>Sub Total</th>

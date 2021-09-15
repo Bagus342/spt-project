@@ -17,9 +17,16 @@
         hr {
             border: 1px solid black;
         }
+        th{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+        }
+
 
         @page {
-            size: landscape;
+            size: potrait;
         }
 
         @media print {
@@ -28,6 +35,12 @@
             }
             header {
                 display: none;
+            }
+            .signature{
+                position: absolute;
+                width: 600px;
+                right: 0;
+                bottom: 0;
             }
         }
 
@@ -50,6 +63,10 @@
                     </div>
                     <!-- info row -->
                     <div class="row invoice-info">
+                        <div class="col-sm-8 invoice-col">
+                            <br>
+                            <h3>No Invoice: </h3>
+                        </div>
                         <div class="col-sm-4 invoice-col pull-right">
                             Malang, {{ formatTanggalCetak($tgl) }} <br>
                             Kepada <br>
@@ -109,7 +126,7 @@
                     </div><br>
                     <!-- /.row -->
                     <!-- Table row -->
-                    <div class="row">
+                    <div class="row signature">
                         <div class="col-xs-4 table-responsive pull-right">
                             Hormat kami <br> <br> <br> <br>
                             CV. RAYA GUNA

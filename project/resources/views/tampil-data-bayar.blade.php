@@ -67,6 +67,7 @@
                                                 <th>Tanggal Pembayaran</th>
                                                 <th>Nama Petani</th>
                                                 <th>No SP</th>
+                                                <th>Sub Total</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
@@ -82,6 +83,7 @@
                                                     <td>{{ formatTanggal($item['tgl']) }}</td>
                                                     <td>{{ $item['petani'] }}</td>
                                                     <td>{{ $item['list_sp'] }}</td>
+                                                    <td></td>
                                                     <td style="text-align: center;">
                                                         <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#exampleModal" data-toggle="modal" data-id="{{ $item['invoice'] }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                         <a href="/spt-project/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
@@ -90,6 +92,15 @@
                                             @endforeach
                                             <?php endif; ?>
                                         </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="tota mt-3">
+                                    <table id="total" class="table table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th>Total</th>
+                                            <th style="text-align: right;">Rp. 1.000.000.000</th>
+                                        </tr>
                                     </table>
                                 </div>
 
@@ -141,6 +152,10 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal Invoice</td>
+                                <td>Rp</td>
                             </tr>
                         </tbody>
                     </table>
