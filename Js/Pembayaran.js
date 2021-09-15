@@ -66,6 +66,7 @@ function displayD() {
         .then((res) => res.json())
         .then((res) => {
           document.getElementById('tabel-detail').innerHTML = parse2(res);
+          document.getElementById('t').innerHTML = parse3(res);
         });
     });
   }
@@ -96,6 +97,25 @@ const detaildata = (res, no) => {
 </tr>
 `;
 };
+
+const parse3 = data => {
+  let no = 0;
+  data.data.map(res => {
+    no += total(res);
+  });
+  return /* html */ `
+  <tr>
+      <th>Subtotal Invoice</th>
+      <th style = "text-align: right;">${formatRupiah(no.toString(), 'Rp ')}</th>
+  </tr>
+  `;
+};
+
+const total = (res) => {
+  const netto = res.berat_pulang - res.refaksi
+  const jumlah = res.harga * netto
+  return jumlah
+}
 
 const formatTanggal = (tgl) => {
   const listMonth = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'November', 'Desember'];
