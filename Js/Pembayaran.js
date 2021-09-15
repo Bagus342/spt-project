@@ -94,10 +94,7 @@ const detaildata = (res, no) => {
     <td>${formatRupiah(res.harga.toString(), 'Rp ')}</td>
     <td>${formatRupiah(total.toString(), 'Rp ')}</td>
 </tr>
-<tr>
-    <td colspan="8">Subtotal Invoice</td>
-    <td>Rp. </td>
-</tr>`;
+`;
 };
 
 const formatTanggal = (tgl) => {

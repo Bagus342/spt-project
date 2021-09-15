@@ -117,7 +117,7 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <th>Total:</th>
+                                            <th style="text-align: left">Total:</th>
                                             <td style="text-align: right">Rp {{ number_format($total, 0, ',', '.') }}</td>
                                         </tr>
                                     </tbody>

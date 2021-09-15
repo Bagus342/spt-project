@@ -153,11 +153,13 @@
                                 <td></td>
                                 <td></td>
                             </tr>
-                            <tr>
-                                <td>Subtotal Invoice</td>
-                                <td>Rp</td>
-                            </tr>
                         </tbody>
+                    </table>
+                    <table class="table table-bordered table-responsive-xl">
+                        <tr>
+                            <td>Subtotal Invoice</td>
+                            <td>Rp</td>
+                        </tr>
                     </table>
                 </div>
                 <div class="modal-footer">
