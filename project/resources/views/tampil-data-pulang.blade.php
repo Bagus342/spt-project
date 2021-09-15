@@ -75,10 +75,10 @@
                                             @if (count($data) === 0)
                                                 <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             @else
-                                                @php
+                                                <?php
                                                     $no = 1;
                                                     $kw = 0;
-                                                @endphp
+                                                ?>
                                                 @foreach ($data as $item)
                                                 <?php $kw += $item->berat_pulang - $item->refaksi ?>
                                                     <tr>
