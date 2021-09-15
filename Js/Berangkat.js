@@ -299,7 +299,7 @@ const htmldata = (res, no) => {
     return /*html*/ `<tr>
     <td>${no}</td>
     <td>${formatTanggal(res.tanggal_keberangkatan)}</td>
-    <td>${res.no_sp}</td>
+    <td>${res.no_sp === null ? '-' : res.no_sp}</td>
     <td>${res.nama_petani}</td>
     <td>${res.nama_sopir}</td>
     <td>${res.pabrik_tujuan}</td>

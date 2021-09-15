@@ -24,6 +24,8 @@ class PembayaranController extends Controller
                 'petani' => $item->nama_sopir,
                 'tgl' => $item->tgl,
                 'list_sp' => $item->sp,
+                'harga' => $item->sangu,
+                'berat' => $item->berat_pulang - $item->refaksi,
             ];
         endforeach;
         return view('tampil-data-bayar', [

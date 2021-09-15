@@ -76,14 +76,16 @@
                                             <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                             <?php else: ?>
                                             <?php $no = 1; ?>
+                                            <?php $total = 0; ?>
                                             @foreach ($list as $item)
+                                            <?php $total += $item['harga'] * $item['berat'] ; ?>
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $item['invoice'] }}</td>
                                                     <td>{{ formatTanggal($item['tgl']) }}</td>
                                                     <td>{{ $item['petani'] }}</td>
                                                     <td>{{ $item['list_sp'] }}</td>
-                                                    <td></td>
+                                                    <td>{{ formatRupiah($item['harga'] * $item['berat']) }}</td>
                                                     <td style="text-align: center;">
                                                         <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#exampleModal" data-toggle="modal" data-id="{{ $item['invoice'] }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                         <a href="/spt-project/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
@@ -99,7 +101,7 @@
                                     <table id="total" class="table table-bordered" style="width: 100%;">
                                         <tr>
                                             <th>Total</th>
-                                            <th style="text-align: right;">Rp. 1.000.000.000</th>
+                                            <th style="text-align: right;">{{formatRupiah($total)}}</th>
                                         </tr>
                                     </table>
                                 </div>

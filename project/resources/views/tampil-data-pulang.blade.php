@@ -77,8 +77,10 @@
                                             @else
                                                 @php
                                                     $no = 1;
+                                                    $kw = 0;
                                                 @endphp
                                                 @foreach ($data as $item)
+                                                <?php $kw += $item->berat_pulang - $item->refaksi ?>
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ formatTanggal($item->tanggal_pulang) }}</td>
@@ -87,7 +89,7 @@
                                                         <td>{{ $item->pabrik_tujuan }}</td>
                                                         <td>{{ $item->nama_sopir }}</td>
                                                         <td>{{ $item->wilayah }}</td>
-                                                        <td>{{ formatRupiah($item->harga) }}</td>
+                                                        <td>{{ $item->berat_pulang - $item->refaksi }}</td>
                                                         <td style="text-align: center;">
                                                             @if ($item->status)
                                                             <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#modal-lg-2" data-toggle="modal" data-id="{{ $item->id_keberangkatan }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
@@ -110,7 +112,7 @@
                                     <table id="total" class="table table-bordered" style="width: 100%;">
                                         <tr>
                                             <th>Total berat bersih</th>
-                                            <th style="text-align: right; width: 75%;">12Kw</th>
+                                            <th style="text-align: right; width: 75%;">{{ $kw }} KG</th>
                                         </tr>
                                     </table>
                                 </div>

@@ -64,8 +64,7 @@
                     <!-- info row -->
                     <div class="row invoice-info">
                         <div class="col-sm-8 invoice-col">
-                            <br>
-                            <h3>No Invoice: </h3>
+                            <h4>No Invoice: {{ $inv }}</h4>
                         </div>
                         <div class="col-sm-4 invoice-col pull-right">
                             Malang, {{ formatTanggalCetak($tgl) }} <br>

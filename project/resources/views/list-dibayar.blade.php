@@ -85,15 +85,15 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td><input type="checkbox" class="cl" name="id[]" value="{{ $item->id_keberangkatan }}" disabled /></td>
-                                            <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_pulang))) }}</td>
+                                            <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
+                                            <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->no_sp }}</td>
+                                            <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->nama_petani }}</td>
                                             <td>{{ $item->nama_sopir }}</td>
-                                            <td>{{ $item->pabrik_tujuan }}</td>
-                                            <td>{{ formatTanggal(date('Y-m-d', strtotime($item->tanggal_keberangkatan))) }}</td>
-                                            <td>{{ $item->no_induk }}</td>
                                             <td>{{ $item->no_truk }}</td>
+                                            <td>{{ $item->pabrik_tujuan }}</td>
                                             <td>{{ $item->netto_pulang }}</td>
                                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td>{{ formatRupiah($item->harga * $item->netto_pulang) }}</td>

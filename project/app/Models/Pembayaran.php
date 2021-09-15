@@ -17,6 +17,6 @@ class Pembayaran extends Model
 
     public function getPembayaran()
     {
-        return DB::select('SELECT no_invoice,nama_sopir,GROUP_CONCAT(DISTINCT no_sp) as sp,GROUP_CONCAT(DISTINCT tanggal_bayar) as tgl FROM tb_pembayaran JOIN tb_transaksi ON tb_pembayaran.id_keberangkatan = tb_transaksi.id_keberangkatan GROUP BY no_invoice, nama_sopir');
+        return DB::select('SELECT no_invoice,sangu,berat_pulang,refaksi,nama_sopir, GROUP_CONCAT(DISTINCT no_sp) as sp,GROUP_CONCAT(DISTINCT tanggal_bayar) as tgl FROM tb_pembayaran JOIN tb_transaksi ON tb_pembayaran.id_keberangkatan = tb_transaksi.id_keberangkatan GROUP BY no_invoice, sangu, nama_sopir, berat_pulang, refaksi');
     }
 }
