@@ -39,15 +39,16 @@ const parse = (data) => {
 };
 
 const htmldata = (res, no) => {
-  const inv = res.no_invoice;
+  const inv = res.invoice;
   const split = inv.split('/');
   const no_inv = `${split[0]}-${split[1]}-${split[2]}-${split[3]}`;
   return /*html*/ `<tr>
     <td>${no}</td>
-    <td>${res.no_invoice}</td>
-    <td>${formatTanggal(res.tanggal_bayar)}</td>
-    <td>${res.nama_sopir}</td>
-    <td>${res.no_sp}</td>
+    <td>${res.invoice}</td>
+    <td>${formatTanggal(res.tgl)}</td>
+    <td>${res.petani}</td>
+    <td>${res.list_sp}</td>
+    <td>${formatRupiah(res.subtotal.toString(), 'Rp ')}</td>
     <td style="text-align: center;">
     <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#exampleModal" data-toggle="modal" data-id="${res.no_invoice}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
         <a href="/spt-project/pembayaran/${no_inv}" class="btn btn-danger text-bold"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>

@@ -115,6 +115,10 @@ const dForm = (THIS) => {
   THIS.berat.readOnly = true;
   THIS.truk.readOnly = true;
   THIS.netto.readOnly = true;
+  THIS.sangu.value = null;
+  THIS.berat.value = null;
+  THIS.truk.value = null;
+  THIS.netto.value = null;
 };
 
 const addForm = (THIS) => {
@@ -235,19 +239,35 @@ function setForm(THIS) {
   fetch(URL + '/berangkat/view/get/' + ID)
     .then((res) => res.json())
     .then((res) => {
-      FORM_UPDATE.tgl_b.value = formatInputUpdate(res.data.tanggal_keberangkatan);
-      FORM_UPDATE.tipe.value = res.data.tipe;
-      FORM_UPDATE.no_sp.value = res.data.no_sp;
-      FORM_UPDATE.no_induk.value = res.data.no_induk;
-      FORM_UPDATE.wilayah.value = res.data.wilayah;
-      FORM_UPDATE.pemilik.value = res.data.nama_petani;
-      FORM_UPDATE.petani.value = res.data.nama_sopir;
-      FORM_UPDATE.pabrik.value = res.data.pabrik_tujuan;
-      FORM_UPDATE.sangu.value = formatRupiah(res.data.sangu.toString(), 'Rp ');
-      FORM_UPDATE.berat.value = res.data.berat_timbang;
-      FORM_UPDATE.truk.value = res.data.tara_mbl;
-      FORM_UPDATE.netto.value = res.data.netto;
-      FORM_UPDATE.harga.value = formatRupiah(res.data.harga.toString(), 'Rp. ');
+      if (res.data.sangu === null) {
+        FORM_UPDATE.tgl_b.value = formatInputUpdate(res.data.tanggal_keberangkatan);
+        FORM_UPDATE.tipe.value = res.data.tipe;
+        FORM_UPDATE.no_sp.value = res.data.no_sp;
+        FORM_UPDATE.no_induk.value = res.data.no_induk;
+        FORM_UPDATE.wilayah.value = res.data.wilayah;
+        FORM_UPDATE.pemilik.value = res.data.nama_petani;
+        FORM_UPDATE.petani.value = res.data.nama_sopir;
+        FORM_UPDATE.pabrik.value = res.data.pabrik_tujuan;
+        FORM_UPDATE.sangu.value = res.data.sangu;
+        FORM_UPDATE.berat.value = res.data.berat_timbang;
+        FORM_UPDATE.truk.value = res.data.tara_mbl;
+        FORM_UPDATE.netto.value = res.data.netto;
+        FORM_UPDATE.harga.value = formatRupiah(res.data.harga.toString(), 'Rp. ');
+      } else {
+        FORM_UPDATE.tgl_b.value = formatInputUpdate(res.data.tanggal_keberangkatan);
+        FORM_UPDATE.tipe.value = res.data.tipe;
+        FORM_UPDATE.no_sp.value = res.data.no_sp;
+        FORM_UPDATE.no_induk.value = res.data.no_induk;
+        FORM_UPDATE.wilayah.value = res.data.wilayah;
+        FORM_UPDATE.pemilik.value = res.data.nama_petani;
+        FORM_UPDATE.petani.value = res.data.nama_sopir;
+        FORM_UPDATE.pabrik.value = res.data.pabrik_tujuan;
+        FORM_UPDATE.sangu.value = formatRupiah(res.data.sangu.toString(), 'Rp ');
+        FORM_UPDATE.berat.value = res.data.berat_timbang;
+        FORM_UPDATE.truk.value = res.data.tara_mbl;
+        FORM_UPDATE.netto.value = res.data.netto;
+        FORM_UPDATE.harga.value = formatRupiah(res.data.harga.toString(), 'Rp. ');
+      }
       FORM_UPDATE.netto.addEventListener('keyup', function () {
         FORM_UPDATE.netto.value = this.value;
       });

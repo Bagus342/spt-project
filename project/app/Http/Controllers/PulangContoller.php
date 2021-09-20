@@ -118,8 +118,12 @@ class PulangContoller extends Controller
 
     public function updateSp(Berangkat $berangkat, Request $req, $id)
     {
-        return $berangkat->where('id_keberangkatan', $id)->update([
-            'no_sp' => $req->no_sp
-        ]) ? redirect()->back()->with('sukses', 'sukses update nomor sp') : redirect()->back()->with('error', 'gagal update nomor sp');
+        if (Berangkat::where('no_sp', $req->no_sp)->first() === null) {
+            return $berangkat->where('id_keberangkatan', $id)->update([
+                'no_sp' => $req->no_sp
+            ]) ? redirect()->back()->with('sukses', 'sukses update nomor sp') : redirect()->back()->with('error', 'gagal update nomor sp');
+        } else {
+            return redirect()->back()->with('error', 'Nomor Sp Telah Terdaftar');
+        }
     }
 }

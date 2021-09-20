@@ -23,9 +23,30 @@ class FilterController extends Controller
         return response()->json(['data' => Berangkat::whereBetween('tanggal_pulang', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
     }
 
-    public function FilterPData(Request $req)
+    public function FilterPData(Request $req, Pembayaran $pembayaran)
     {
-        return response()->json(['data' => Pembayaran::join('tb_transaksi', 'tb_pembayaran.id_keberangkatan', '=', 'tb_transaksi.id_keberangkatan')->whereBetween('tanggal_bayar', [$req->tgl1, $req->tgl2])->get(), 'tgl2' => $req->tgl2, 'tgl1' => $req->tgl1]);
+        $dt = [];
+        foreach ($pembayaran->getFilter($req->tgl1, $req->tgl2) as $item) {
+            $dt[] = [
+                'invoice' => $item->no_invoice,
+                'petani' => $item->nama_sopir,
+                'tgl' => $item->tgl,
+                'list_sp' => $item->sp,
+                'subtotal' => $this->subTotal($item->s, $item->n),
+            ];
+        }
+        return response()->json(['data' => $dt]);
+    }
+
+    private function subTotal($sangu, $netto)
+    {
+        $s = explode(',', $sangu);
+        $n = explode(',', $netto);
+        $jumlah = 0;
+        for ($i = 0; $i < count($s); $i++) {
+            $jumlah += (int) $s[$i] * (int) $n[$i];
+        }
+        return $jumlah;
     }
 
     public function FilterTData(Request $req)

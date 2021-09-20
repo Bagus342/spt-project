@@ -203,10 +203,46 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('Js/Range.js') }}"></script>
+    <script>
+        const flash = document.querySelector('#flash-data-success');
+
+const alert = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  icon: 'success',
+  showConfirmButton: false,
+  timer: 1500,
+});
+
+if (flash.getAttribute('data-flash-success') !== '') {
+  alert.fire({
+    icon: 'success',
+    title: `${flash.getAttribute('data-flash-success')}`,
+  });
+}
+
+const errorflash = document.querySelector('#flash-data-error');
+
+const alerterror = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  icon: 'error',
+  showConfirmButton: false,
+  timer: 1500,
+});
+
+if (errorflash.getAttribute('data-flash-error') !== '') {
+  alerterror.fire({
+    icon: 'error',
+    title: `${errorflash.getAttribute('data-flash-error')}`,
+  });
+}
+
+    </script>
 @endsection

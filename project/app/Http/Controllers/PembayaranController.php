@@ -24,8 +24,7 @@ class PembayaranController extends Controller
                 'petani' => $item->nama_sopir,
                 'tgl' => $item->tgl,
                 'list_sp' => $item->sp,
-                'harga' => $item->sangu,
-                'berat' => $item->berat_pulang - $item->refaksi,
+                'subtotal' => $this->subTotal($item->s, $item->n),
             ];
         endforeach;
         return view('tampil-data-bayar', [
@@ -34,6 +33,17 @@ class PembayaranController extends Controller
         ]);
     }
 
+    private function subTotal($sangu, $netto)
+    {
+        $s = explode(',', $sangu);
+        $n = explode(',', $netto);
+        $jumlah = 0;
+        for ($i = 0; $i < count($s); $i++) {
+            $jumlah += (int) $s[$i] * (int) $n[$i];
+        }
+        return $jumlah;
+    }
+    
     private function makeId(Pembayaran $pembayaran)
     {
         $last = $pembayaran->latest()->first();

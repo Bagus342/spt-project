@@ -75,17 +75,18 @@
                                         <?php if (count($list) === 0) : ?>
                                             <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         <?php else : ?>
-                                            <?php $no = 1; ?>
-                                            <?php $total = 0; ?>
+                                        <?php $total = 0; ?>
                                             @foreach ($list as $item)
-                                            <?php $total += $item['harga'] * $item['berat']; ?>
+                                            @php
+                                                $total += $item['subtotal']
+                                            @endphp
                                             <tr>
-                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item['invoice'] }}</td>
                                                 <td>{{ formatTanggal($item['tgl']) }}</td>
                                                 <td>{{ $item['petani'] }}</td>
                                                 <td>{{ $item['list_sp'] }}</td>
-                                                <td>{{ formatRupiah($item['harga'] * $item['berat']) }}</td>
+                                                <td>{{ formatRupiah($item['subtotal'])}}</td>
                                                 <td style="text-align: center;">
                                                     <button type="button" class="btn btn-primary text-bold detail" id="detail" data-target="#exampleModal" data-toggle="modal" data-id="{{ $item['invoice'] }}"><i class="fas fa-info-circle"></i>&nbsp;Detail</button>
                                                     <a href="/spt-project/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
