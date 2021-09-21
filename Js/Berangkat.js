@@ -133,7 +133,6 @@ const oForm = (THIS) => {
   THIS.sangu.readOnly = false;
   THIS.berat.readOnly = false;
   THIS.truk.readOnly = false;
-  THIS.netto.readOnly = false;
 };
 
 FORM_UPDATE.tipe.addEventListener('change', function () {
@@ -144,8 +143,9 @@ FORM_UPDATE.tipe.addEventListener('change', function () {
   }
 });
 
-FORM_ADD.berat.addEventListener('keyup', function () {
+FORM_ADD.netto.addEventListener('keyup', function () {
   FORM_ADD.netto.value = this.value;
+  this.readOnly = true
 });
 
 FORM_ADD.truk.addEventListener('keyup', function () {
@@ -155,6 +155,17 @@ FORM_ADD.truk.addEventListener('keyup', function () {
   } else {
     truk = parseInt(this.value);
     const netto = parseInt(FORM_ADD.berat.value) - parseInt(truk);
+    FORM_ADD.netto.value = netto.toString();
+  }
+});
+
+FORM_ADD.berat.addEventListener('keyup', function () {
+  let berat = 0;
+  if (this.value === '') {
+    FORM_ADD.netto.value = 'Netto';
+  } else {
+    berat = parseInt(this.value);
+    const netto = parseInt(berat) - parseInt(FORM_ADD.truk.value);
     FORM_ADD.netto.value = netto.toString();
   }
 });
@@ -278,6 +289,16 @@ function setForm(THIS) {
         } else {
           tara = parseInt(this.value);
           const jumlah = parseInt(FORM_UPDATE.berat.value) - tara;
+          FORM_UPDATE.netto.value = jumlah;
+        }
+      });
+      FORM_UPDATE.berat.addEventListener('keyup', function () {
+        let berat = 0;
+        if (this.value === '') {
+          FORM_UPDATE.netto.value = 'Netto';
+        } else {
+          berat = parseInt(this.value);
+          const jumlah = berat - parseInt(FORM_UPDATE.truk.value);
           FORM_UPDATE.netto.value = jumlah;
         }
       });

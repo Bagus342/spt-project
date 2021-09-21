@@ -1,3 +1,4 @@
+<?php $total = 0; ?>
 @extends('templates.template')
 @section('css-list')
 <link rel="stylesheet" href="{{ asset('css/list.css') }}">
@@ -75,7 +76,6 @@
                                         <?php if (count($list) === 0) : ?>
                                             <td colspan="11" style="text-align: center;">DATA KOSONG</td>
                                         <?php else : ?>
-                                        <?php $total = 0; ?>
                                             @foreach ($list as $item)
                                             @php
                                                 $total += $item['subtotal']

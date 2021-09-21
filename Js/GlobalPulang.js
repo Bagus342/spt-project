@@ -50,7 +50,7 @@ function setTanggal(tgl) {
 }
 
 document
-    .querySelector('input[name=berat_pulang]')
+    .querySelector('input[name=berat_bersih]')
     .addEventListener('keyup', function () {
         const netto = document.querySelector('input[name=berat_bersih]');
         netto.value = this.value;
@@ -64,6 +64,21 @@ document
             parseInt(document.querySelector('input[name=berat_pulang]').value) -
             parseInt(this.value);
         netto.value = total.toString();
+    });
+
+document
+    .querySelector('input[name=berat_pulang]')
+    .addEventListener('keyup', function () {
+        let berat = 0
+        if (this.value === '') {
+            document.querySelector('input[name=berat_bersih]').value = 'Netto'
+        } else {
+            berat = parseInt(this.value)
+            let set =
+                berat -
+                parseInt(document.querySelector('input[name=refaksi]').value);
+            document.querySelector('input[name=berat_bersih]').value = set.toString();
+        }
     });
 
 displayU();

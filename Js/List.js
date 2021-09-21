@@ -26,7 +26,7 @@ function elementSp() {
 elementSp();
 
 document
-    .querySelector('input[name=berat_pulang]')
+    .querySelector('input[name=netto]')
     .addEventListener('keyup', function () {
         document.querySelector('input[name=netto]').value =
             this.value.toString();
@@ -43,6 +43,21 @@ document
             let set =
                 parseInt(document.querySelector('input[name=berat_pulang]').value) -
                 refaksi;
+            document.querySelector('input[name=netto]').value = set.toString();
+        }
+    });
+
+document
+    .querySelector('input[name=berat_pulang]')
+    .addEventListener('keyup', function () {
+        let berat = 0
+        if (this.value === '') {
+            document.querySelector('input[name=netto]').value = 'Netto'
+        } else {
+            berat = parseInt(this.value)
+            let set =
+                berat -
+                parseInt(document.querySelector('input[name=refaksi]').value);
             document.querySelector('input[name=netto]').value = set.toString();
         }
     });
