@@ -68,6 +68,7 @@
                                                 <th>Tanggal Pembayaran</th>
                                                 <th>Nama Petani</th>
                                                 <th>No SP</th>
+                                                <th>Subtotal</th>
                                                 <th style="text-align: center;">Action</th>
 
                                             </tr>
@@ -84,15 +85,23 @@
                                                     <td>{{ formatTanggal($item['tgl']) }}</td>
                                                     <td>{{ $item['petani'] }}</td>
                                                     <td>{{ $item['list_sp'] }}</td>
+                                                    <td></td>
                                                     <td style="text-align: center;">
-                                                        <a href="/pembayaran/{{ str_replace('/', '-', $item['invoice']) }}" class="btn btn-danger text-bold delete"><i class="far fa-trash-alt"></i>&nbsp;Hapus</a>
-                                                        &nbsp;&nbsp;
                                                         <a href="/spt-project/transaksi/pembayaran/cetak?inv={{ $item['invoice'] }}" class="btn btn-success text-bold"><i class="fas fa-print"></i>&nbsp;Cetak</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                             <?php endif; ?>
                                         </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="total mt-3">
+                                    <table id="total" class="table table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th>Total</th>
+                                            <th style="text-align: right; width: 75%;"></th>
+                                        </tr>
                                     </table>
                                 </div>
 

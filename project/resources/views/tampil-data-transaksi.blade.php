@@ -77,6 +77,7 @@
                                                 <th>Tgl Bongkar</th>
                                                 <th>Tipe</th>
                                                 <th>Pemilik</th>
+                                                <th>No induk</th>
                                                 <th>Petani</th>
                                                 <th>No SP</th>
                                                 <th>No Truk</th>
@@ -105,6 +106,7 @@
                                                     <td>{{ formatTanggal($item->tanggal_bongkar) }}</td>
                                                     <td>{{ $item->tipe }}</td>
                                                     <td>{{ $item->nama_petani }}</td>
+                                                    <td></td>
                                                     <td>{{ $item->nama_sopir }}</td>
                                                     <td>{{ $item->no_sp }}</td>
                                                     <td>{{ $item->no_truk === null ? 'belum pulang' : $item->no_truk }}</td>
